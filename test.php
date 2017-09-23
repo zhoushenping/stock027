@@ -11,6 +11,12 @@ ini_set('memory_limit', '128M');
 include_once(dirname(__FILE__) . '/define.php');
 require_once(ROOT_PATH . 'include' . DS . 'config' . DS . 'global.php');
 
-var_dump(TradeDate::getTradeDates());
+//var_dump(TradeDate::getTradeDates());
 
 //DailySummary::getAll();
+
+//RealTime::getAll();
+
+die;
+
+

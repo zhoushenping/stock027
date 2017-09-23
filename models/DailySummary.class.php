@@ -21,7 +21,7 @@ class DailySummary
         //创业板等板块暂不收录
     );
 
-    //顺不可随意
+    //顺序不可随意
     static $arr_columns = [
         'symbol'        => '代码',
         'code'          => '代码2',
@@ -46,6 +46,17 @@ class DailySummary
         'date'          => '日期',
         'amp'           => '振幅',
     ];
+
+    static function getSymbols($limit = 0)
+    {
+        $ret = [];
+        $rs  = DBHandle::select(self::table, 1, "distinct `symbol`");
+        foreach ($rs as $item) {
+            $ret[] = $item['symbol'];
+        }
+
+        return $limit == 0 ? $ret : array_slice($ret, 0, $limit);
+    }
 
     static function getAll()
     {

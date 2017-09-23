@@ -5,10 +5,16 @@ class Random
 
     static $str_normal = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
     static $str_verify = 'abcdefghkmnpqrstuvwxyzZ23456789';//确认码专用,去掉了容易混淆的字符和大写字符
+    static $str_number = '0123456789';
 
     public static function getRandom($length = 10)
     {
         return self::call(self::$str_normal, $length);
+    }
+
+    public static function getRandomNumber($length = 10)
+    {
+        return self::call(self::$str_number, $length);
     }
 
     public static function getVerifyCode($length = 4)
