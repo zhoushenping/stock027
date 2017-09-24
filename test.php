@@ -17,6 +17,7 @@ require_once(ROOT_PATH . 'include' . DS . 'config' . DS . 'global.php');
 
 //RealTime::getAll();
 
+DailyTradeDetail::getMultiDetail(['sz002354'], ['2017-09-22',]);
 die;
 
 
