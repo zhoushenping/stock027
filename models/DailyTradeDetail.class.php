@@ -79,4 +79,13 @@ class DailyTradeDetail
 
         return $ret;
     }
+
+    //样本 getDailyDetail('sz002354', 20170922);
+    static function getDailyDetail($symbol, $date)
+    {
+        $date   = (int)$date;
+        $symbol = addslashes($symbol);
+
+        return DBHandle::select(self::table, "`symbol`='$symbol' AND `date`=$date");
+    }
 }
