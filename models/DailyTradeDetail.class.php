@@ -9,6 +9,8 @@
 class DailyTradeDetail
 {
 
+    //QQ股票详单下载地址样本 http://stock.gtimg.cn/data/index.php?appn=detail&action=download&c=sz002354&d=20170925
+
     const table = 'trade_detail';//交易详单
 
     //顺序不可随意
@@ -32,11 +34,22 @@ class DailyTradeDetail
         $params  = array();
         foreach ($arr_stock_ids as $stock_id) {
             foreach ($dates as $date) {
+                /*新浪所用代码  备用
                 $params[$key]  = array(
                     "url"    => "http://market.finance.sina.com.cn/downxls.php",
                     "params" => array(
                         'date'   => $date,
                         'symbol' => $stock_id,
+                    ),
+                );
+                */
+                $params[$key]  = array(
+                    "url"    => "http://stock.gtimg.cn/data/index.php",
+                    "params" => array(
+                        'appn'   => 'detail',
+                        'action' => 'download',
+                        'd'      => String::filterNoNumber($date),
+                        'c'      => $stock_id,
                     ),
                 );
                 $keyInfo[$key] = array('stockID' => $stock_id, 'date' => $date,);
@@ -48,25 +61,36 @@ class DailyTradeDetail
         $arr_columns = array_keys(self::$arr_columns);
 
         foreach ($params as $key => $paraInfo) {
+            $symbol = $paraInfo['params']['c'];
+            $date   = $paraInfo['params']['d'];
+
             $content = $ret[$key]['content'];
             $info    = self::getFormmatedInfo($content);
+
+            if ($info == false) {
+                continue;
+            }
 
             $arr_data = [];
             foreach ($info as $item) {
                 //顺不可随意
                 $item[5]    = (strpos($item[5], '买') !== false) ? 1 : 0;
-                $item[]     = $paraInfo['params']['symbol'];
-                $item[]     = String::filterNoNumber($paraInfo['params']['date']);
-                $item[]     = strtotime("{$paraInfo['params']['date']} {$item[0]}");
+                $item[]     = $symbol;
+                $item[]     = String::filterNoNumber($paraInfo['params']['d']);
+                $item[]     = strtotime("{$date} {$item[0]}");
                 $arr_data[] = $item;
             }
+
+            if (empty($arr_data)) continue;
             DBHandle::insertMultiIgnore(self::table, $arr_columns, $arr_data);
         }
     }
 
     private static function getFormmatedInfo($content)
     {
-        $content     = iconv("GBK", "UTF-8", $content);
+        $content = iconv("GBK", "UTF-8", $content);
+        if (strpos($content, '成交') === false) return false;
+
         $arr_content = explode("\n", $content);
 
         $ret = [];

@@ -144,8 +144,11 @@ class DBnew {
         return "host:$this->host|port:$this->port|user:$this->user|pwd:$this->pwd|database:$this->database|chartset:$this->db_charset <br>";
     }
 
-    public function save_log($sql){
-        $info  = mysql_errno(self::$conn) . "|$sql|" . mysql_error(self::$conn);
+    public function save_log($sql)
+    {
+        $info = mysql_errno(self::$conn) . "|$sql|" . mysql_error(self::$conn);
+
+        if (mysql_errno(self::$conn) == 0 && strlen($sql) >= 500) return false;
         Log2::save_run_log($info, 'db2');
     }
 
