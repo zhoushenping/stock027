@@ -52,7 +52,7 @@ class RealTime
 
     static function getAll()
     {
-        $params      = self::makeDownloadParams(DailySummary::getSymbols(0));
+        $params      = self::makeDownloadParams(StockList::getSymbols(0));
         $ret         = CURL::mfetch($params, 'post');//post不要轻易改变为get 切记
         $arr_columns = array_keys(self::$arr_columns);
 

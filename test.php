@@ -23,6 +23,7 @@ error_reporting(E_ALL);
 //var_dump(MinuteSummary::calculate('sz002354', 20170922));
 //die;
 
+/*
 $allsymbols = [
     'sh600331',
     'sh600315',
@@ -31,5 +32,7 @@ $allsymbols = [
 $arr_date   = [20170925];
 
 DailyTradeDetail::getMultiDetail($allsymbols, $arr_date);
+*/
 
+var_dump(DailyTradeDetail::getDailyDetail('sh600000', 20171010));
 

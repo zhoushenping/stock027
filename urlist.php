@@ -14,3 +14,7 @@
 
 //历史交易
 //http://vip.stock.finance.sina.com.cn/corp/go.php/vMS_MarketHistory/stockid/002354.phtml
+
+
+//资金路线图等
+//http://vip.stock.finance.sina.com.cn/moneyflow/#blocktol_conc
