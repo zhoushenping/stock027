@@ -1,67 +1,42 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: zsp
- * Date: 2017/10/22
- * Time: 下午11:54
- */
-
-?>
-
+<title><?= $type == 'now' ? '现持股' : '曾持股' ?></title>
+<link rel="stylesheet" href="/static/page/east/chart.css">
+<script src="/static/common/jquery-1.7.2.min.js"></script>
+<body>
+<div id="main_mask">
+    <div id="show">
+        <iframe src="/null.html" width="620" height="510" marginheight="0" marginwidth="0" frameborder="0"
+                scrolling="no"></iframe>
+        <span></span>
+    </div>
+</div>
 <?
-$name          = '天神娱乐';
-$symbols_shown = ['002354', '002354', '002354', '002354', '002354', '002354', '002354', '002354', '002354',];
-foreach ($symbols_shown as $symbol) {
+
+$symbols_shown = [];
+foreach (eastHistory::getRecords() as $item) {
+    if ($type == 'now' && $item['Gfye'] == 0) {
+        $symbols_shown[] = $item['Zqdm'];
+    }
+
+    if (in_array($item['Zqdm'], $symbols_shown)) continue;
+    $symbols_shown[] = $item['Zqdm'];
+    $symbol          = $item['Zqdm'];
+    $names[$symbol]  = $item['Zqmc'];
+
     ?>
-    <div class="chart_container">
+    <div class="chart_container" id="chart_container_<?= $symbol ?>">
         <div class="chart_mask"></div>
-        <iframe src="//stockpage.10jqka.com.cn/HQ_v4.html#hs_<?= $symbol ?>" width="620" height="610"
-                style="margin:5px;"
-                marginheight="0"
-                marginwidth="0" frameborder="0" scrolling="no"></iframe>
-        <span><?= $name ?></span>
+        <iframe class="small" src="" width="620" height="610"
+                style="margin:5px;" marginheight="0" marginwidth="0" frameborder="0" scrolling="no"></iframe>
+        <span></span>
     </div>
     <?
 }
 ?>
-<script src="/static/common/jquery-1.7.2.min.js"></script>
+</body>
 <script>
-    $(function () {
-        $('.chart_mask').click(function () {
-            alert(123);
-        })
-    })
+    var names = <?=json_encode($names)?>;
+    var iframe_url_common = '<?=$iframe_url_common?>';
+    var refresh_time = <?=$type == 'now' ? 5 : 30?>;
+
 </script>
-<style>
-    iframe {
-        display: inline-block;
-        transform: scale(0.6, 0.6);
-        position: relative;
-        top: -122px;
-        left: -125px;
-    }
-
-    div.chart_container {
-        position: relative;
-        width: 380px;
-        height: 350px;
-        background-color: #666699;
-        display: inline-block;
-        overflow: hidden;
-    }
-
-    span {
-        position: absolute;
-        bottom: 7px;
-        left: 5px;
-    }
-
-    .chart_mask {
-        position: absolute;
-        z-index: 5;
-        width: 100%;
-        height: 100%;
-        cursor: pointer;
-        /*background-color: red;*/
-    }
-</style>
+<script src="/static/page/east/chart.js"></script>

@@ -1,0 +1,65 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#main_mask {
+    background: url("/static/page/east/mask.png") repeat;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 90;
+    display: none;
+}
+
+iframe.fff {
+    display: inline-block;
+    transform: scale(0.6, 0.6);
+    position: relative;
+    top: -122px;
+    left: -125px;
+}
+
+iframe.small {
+    display: inline-block;
+    transform: scale(0.6, 0.6);
+    position: relative;
+    top: -122px;
+    left: -125px;
+}
+
+#show {
+    width: 620px;
+    height: 540px;
+    overflow: hidden;
+    position: relative;
+    margin-left: -310px;
+    left: 50%;
+    margin-top: -270px;
+    top: 50%;
+    background-color: white;
+}
+
+div.chart_container {
+    position: relative;
+    width: 380px;
+    height: 350px;
+    background-color: #666699;
+    display: inline-block;
+    overflow: hidden;
+}
+
+span {
+    position: absolute;
+    bottom: 7px;
+    left: 5px;
+}
+
+.chart_mask {
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    /*background-color: red;*/
+}

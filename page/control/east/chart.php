@@ -1,7 +1,3 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: zsp
- * Date: 2017/10/22
- * Time: 下午11:54
- */
+$type              = $_REQUEST['type'];
+$iframe_url_common = '//stockpage.10jqka.com.cn/HQ_v4.html#hs_';
