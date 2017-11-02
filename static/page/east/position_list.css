@@ -1,0 +1,155 @@
+.listtable table td {
+    height: 42px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+table, tr, td {
+    border: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.listtable table {
+    width: 100%;
+    font-family: arial, 宋体, sans-serif;
+    font-size: 13px;
+    color: #333;
+    border-collapse: collapse;
+}
+
+body, button, input, select, textarea {
+    font: 12px/1.5 tahoma, arial, "Hiragino Sans GB", 宋体;
+}
+
+.lh200 {
+    line-height: 200%;
+}
+
+.Financial-position .pad-box {
+    padding-left: 17px;
+    padding-right: 17px;
+}
+
+.Financial-position .tb-tr-right {
+    border-right: 1px dashed #d9d9d9;
+}
+
+.Financial-position .tb-tr-bot {
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.hktrade.pagetradeb .padl10 {
+    padding-left: 10px;
+    float: right;
+}
+
+.v_con {
+    float: left;
+    width: 815px;
+    _width: 770px;
+    margin-left: 15px;
+    position: relative;
+    min-height: 50px;
+}
+
+.Financial-position {
+}
+
+.hktrade {
+}
+
+.lh300 {
+    line-height: 300%;
+}
+
+.hktrade.pagetradeb .zichan {
+    border: 1px solid #d9d9d9;
+    margin-top: -7px;
+    font-size: 16px;
+}
+
+.newBusi_Tit {
+    font-size: 16px;
+    font-weight: bold;
+    color: #3f3f3f;
+}
+
+.red {
+    color: red;
+}
+
+body, button, input, select, textarea {
+    font: 12px/1.5 tahoma, arial, "Hiragino Sans GB", 宋体;
+}
+
+.listtable table {
+    width: 100%;
+    font-family: arial, 宋体, sans-serif;
+    font-size: 13px;
+    color: #333;
+    border-collapse: collapse;
+}
+
+.listtable table thead th {
+    font-family: 'Microsoft YaHei';
+    border-bottom: 1px solid #2f5895;
+    line-height: 15px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 7px 0;
+}
+
+.listtable th {
+    height: 18px;
+    line-height: 18px;
+}
+
+caption, th {
+    text-align: center;
+}
+
+.listtable table td {
+    height: 42px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.v_con .operate button.btn_cancel, .v_con .listtable button.btn_cancel, .listtable button.btn_sale, .v_con .operate button.btn_search, .listtable span.btn_gray, .listtable button.btn_buy {
+    color: #fff;
+    background-color: #2f5895;
+    font-size: 12px;
+    font-weight: normal;
+    padding: 1px 8px;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
+.btn {
+    display: inline-block;
+    overflow: visible;
+    padding: 5px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 0 none;
+}
+
+.listtable button.btn_buy {
+    background-color: #ff4901;
+}
+
+.listtable button.btn_sale {
+    background-color: #2f5895;
+}
+
+.gbpopbox input, select, button {
+    font-family: SimSun;
+}

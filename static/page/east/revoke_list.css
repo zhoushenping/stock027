@@ -1,0 +1,35 @@
+.w40 {
+    width: 40px;
+}
+
+.w80 {
+    width: 80px;
+}
+
+.listtable table thead th {
+    font-family: 'Microsoft YaHei';
+    border-bottom: 1px solid #2f5895;
+    line-height: 15px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 7px 0;
+}
+
+.listtable th {
+    height: 18px;
+    line-height: 18px;
+}
+
+caption, th {
+    text-align: center;
+}
+
+th, td {
+    border: 1px solid lightgray;
+    padding: 5px 10px;
+    border-collapse: collapse;
+}
+
+table {
+    border-collapse: collapse;
+}

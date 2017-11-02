@@ -9,7 +9,7 @@
 class CURL
 {
 
-    static function Request($url, $data = '')
+    static function Request($url, $data = '', $headers = [])
     {
         if (strpos($url, 'http') === false) {
             $url = 'http:' . $url;
@@ -21,6 +21,7 @@ class CURL
         curl_setopt($curl, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
         curl_setopt($curl, CURLOPT_AUTOREFERER, 1);
         curl_setopt($curl, CURLOPT_DNS_USE_GLOBAL_CACHE, false);//20150819为解决s273的bug而加
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 
         if (!empty($data)) {
             curl_setopt($curl, CURLOPT_POST, 1);
@@ -43,10 +44,10 @@ class CURL
         return $ret;
     }
 
-    static function getJson($url, $data = '')
+    static function getJson($url, $data = '', $headers = [])
     {
         $ret = array();
-        $rs  = self::Request($url, $data);
+        $rs  = self::Request($url, $data, $headers);
         if ($rs !== false) {
             $rs = json_decode($rs, 1);
             if (is_array($rs)) {
@@ -57,7 +58,7 @@ class CURL
         return $ret;
     }
 
-    static function mfetch($params, $method = 'get')
+    static function mfetch($params, $method = 'get', $headers = [])
     {
         $mh      = curl_multi_init(); //初始化一个curl_multi句柄
         $handles = array();
@@ -72,7 +73,7 @@ class CURL
             else {
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $data); //post方式
             }
-            Log2::save_run_log($url,'curl_m');
+            Log2::save_run_log($url, 'curl_m');
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -80,6 +81,9 @@ class CURL
             curl_setopt($ch, CURLOPT_TIMEOUT, 100);
             curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
             curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER["HTTP_USER_AGENT"]);
+            if (!empty($headers)) {
+                curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+            }
             curl_multi_add_handle($mh, $ch);
             $handles[$ch] = $key;
             //handles数组用来记录curl句柄对应的key,供后面使用，以保证返回的数据不乱序。

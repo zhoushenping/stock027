@@ -8,6 +8,7 @@
  */
 class String
 {
+
     //只留下数字
     static function _filterNoNumber(&$str)
     {
@@ -109,5 +110,15 @@ class String
         }
 
         return $ret;
+    }
+
+    static function getAfter($string, $needle)
+    {
+        return substr($string, strpos($string, $needle) + strlen($needle));
+    }
+
+    static function getFrom($string, $needle)
+    {
+        return substr($string, strpos($string, $needle));
     }
 }

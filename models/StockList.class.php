@@ -21,8 +21,12 @@ class StockList
 
     static function getSymbols($limit = 0)
     {
+        static $rs = [];
+        if (empty($rs)) {
+            $rs = DBHandle::select(self::table, 1, "distinct `symbol`");
+        }
+
         $ret = [];
-        $rs  = DBHandle::select(self::table, 1, "distinct `symbol`");
         foreach ($rs as $item) {
             $ret[] = $item['symbol'];
         }
@@ -30,13 +34,22 @@ class StockList
         return $limit == 0 ? $ret : array_slice($ret, 0, $limit);
     }
 
+    static function getStandardSymbol($str)
+    {
+        if (is_numeric($str)) {
+            foreach (self::getSymbols() as $symbol) {
+                if (substr($symbol, 2) == $str) return $symbol;
+            }
+        }
+
+        return $str;
+    }
+
     static function update()
     {
-        $params = self::makeDownloadParams();
-        $ret    = CURL::mfetch($params);
-
+        $params      = self::makeDownloadParams();
+        $ret         = CURL::mfetch($params);
         $arr_columns = array_keys(self::$arr_columns);
-        $date        = TradeDate::getTradeDates()[0];
 
         foreach ($params as $key => $null) {
             $content = $ret[$key]['content'];

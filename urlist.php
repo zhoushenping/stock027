@@ -18,3 +18,7 @@
 
 //资金路线图等
 //http://vip.stock.finance.sina.com.cn/moneyflow/#blocktol_conc
+
+
+//主力动向
+//http://finance.qq.com/data/#ggzlzc

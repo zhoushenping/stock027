@@ -30,7 +30,7 @@ header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT
 error_reporting(0);//E_ALL
 //error_reporting(E_ALL);//E_ALL
 define('TEST', 0);
-define('DEVELOP_MODE', 1);//0=非开发模式(上线)	1=测试服上	2=本地开发
+define('DEVELOP_MODE', 0);//0=非开发模式(上线)	1=测试服上	2=本地开发
 define('DB_SET', 'online');//用那个数据库  online=线上  develop=开发
 define("ODP_URL", "//odp.oasgames.com");
 
@@ -46,6 +46,7 @@ define('GAME_NAME', 'Legend Online');
 define("LANG_OAS", "ar-ar");
 define('LANG_URL', 'ar_ar');
 define("SYSTEM_LANG", "ar");
+define("WEB_HOST", "stock027.oasgames.com");
 
 define('ZHUISUMA', time() . '_' . rand(100, 999));
 
@@ -77,7 +78,7 @@ require_once(ROOT_PATH . 'include/config/autoLoad.php');
 //模拟未来当前时间,以方便测试
 $_CURRENT_TIME = Time::getCurrentTime();
 
-define("LOG_DIR", "/data/log/zspstock.oasgames.com");
+define("LOG_DIR", "/data/log/zhanmo.oasgames.com");
 define('OAS_DOMAIN', 'oasgames.com');//不变
 define("PLATFORM", "home");//所在的平台是app还是home
 

@@ -44,7 +44,7 @@ class Log2
 
         //不记录特定的日志  减少日志体积
         if (
-            strpos($info, 'pay.oasgames.com/core/_action.php?msg=getBlackList')                            //支付    查询知否为黑名单玩家
+            strpos($info, 'hq.sinajs.cn/etag.php')                            //每5秒下载实时数据
             or (strpos($info, '|200|https://graph.facebook.com/')      and strpos($info, '|200|http'))     //获取玩家的facebook个人信息或好友信息 的成功记录
             or (strpos($info, 'oasgames.com/ranklist')                 and strpos($info, '|200|http'))     //排行榜查询  的成功记录
             or (strpos($info, 'serverlist4guanwan')                    and strpos($info, '|200|http'))     //查询服务器列表 的成功记录

@@ -13,18 +13,10 @@ class Mem
 
     static function getConfig()
     {
-        if (DEVELOP_MODE) {
-            $arr = array(
-                'server' => '127.0.0.1',
-                'port'   => '11211',
-            );
-        }
-        else {
-            $arr = array(
-                'server' => '192.168.10.23',
-                'port'   => '11211',//todo
-            );
-        }
+        $arr = array(
+            'server' => '127.0.0.1',
+            'port'   => '11211',
+        );
 
         return $arr;
     }

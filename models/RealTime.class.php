@@ -50,24 +50,47 @@ class RealTime
         'timestamp'    => '时间戳',//34 人为加
     ];
 
-    static function getAll()
+    static function get($symbols = [], $act = 'return')
     {
-        $params      = self::makeDownloadParams(StockList::getSymbols(0));
+        $params      = self::makeDownloadParams($symbols);
         $ret         = CURL::mfetch($params, 'post');//post不要轻易改变为get 切记
         $arr_columns = array_keys(self::$arr_columns);
 
+        $arr_data = [];
         foreach ($params as $key => $null) {
             $content = $ret[$key]['content'];
             $info    = self::getFormmatedInfo($content);
 
-            $arr_data = [];
             foreach ($info as $item) {
                 //顺序不可随意
                 if (count($item) != count($arr_columns)) continue;
-                $arr_data[] = $item;
+                $arr_data[] = self::mergeItem($arr_columns, $item);
             }
-            DBHandle::insertMultiIgnore(self::table, $arr_columns, $arr_data);
         }
+        if ($act == 'return') {
+            return $arr_data;
+        }
+        else {
+            DBHandle::insertMultiIgnore(self::table, $arr_columns, $arr_data);
+
+            return [];
+        }
+    }
+
+    static function mergeItem($keys, $item)
+    {
+        $ret = [];
+        foreach ($item as $k => $v) {
+            $ret[$keys[$k]] = $v;
+        }
+
+        return $ret;
+    }
+
+    static function getAll()
+    {
+        $symbols = StockList::getSymbols(0);
+        self::get($symbols, 'writeDB');
     }
 
     private static function getFormmatedInfo($content)
@@ -112,5 +135,14 @@ class RealTime
         }
 
         return $params;
+    }
+
+    static function getPrice($symbol, $t = 0)
+    {
+        if ($t == 0) $t = time();
+        $where = "`symbol`='$symbol' AND `timestamp`<=$t AND trade>0 ORDER BY `timestamp` DESC LIMIT 0,1";
+        $rs    = DBHandle::select(self::table, $where);
+
+        return (float)($rs[0]['trade']);
     }
 }

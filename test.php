@@ -11,28 +11,7 @@ ini_set('memory_limit', '128M');
 include_once(dirname(__FILE__) . '/define.php');
 require_once(ROOT_PATH . 'include' . DS . 'config' . DS . 'global.php');
 
-error_reporting(E_ALL);
+//var_dump(DailyTradeDetail::getDailyDetail('sh600000', 20171010));
 
-//var_dump(TradeDate::getTradeDates());
-
-//DailySummary::getAll();
-
-//RealTime::getAll();
-
-//DailyTradeDetail::getMultiDetail(['sz002354'], ['2017-09-22',]);
-//var_dump(MinuteSummary::calculate('sz002354', 20170922));
-//die;
-
-/*
-$allsymbols = [
-    'sh600331',
-    'sh600315',
-];
-
-$arr_date   = [20170925];
-
-DailyTradeDetail::getMultiDetail($allsymbols, $arr_date);
-*/
-
-var_dump(DailyTradeDetail::getDailyDetail('sh600000', 20171010));
-
+//Zhuli::downloadDailyTop50(TradeDate::getLastDates(90));
+//Zhuli::downloadGegu(['sz002467', 'sh601288'], 3);

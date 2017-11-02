@@ -149,4 +149,20 @@ class Time
 
         return $ret;
     }
+
+    static function isTradeTime($t = 0)
+    {
+        if ($t == 0) $t = time();
+        $date = date('Y-m-d');
+        $t1   = strtotime("$date 09:20:00");
+        $t2   = strtotime("$date 11:40:00");
+        $t3   = strtotime("$date 12:50:00");
+        $t4   = strtotime("$date 15:10:00");
+
+        if ($t < $t1 || $t > $t4) return false;
+
+        if ($t > $t2 && $t < $t3) return false;
+
+        return true;
+    }
 }

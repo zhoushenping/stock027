@@ -56,10 +56,10 @@ class DailyTradeDetail
 
             $content = $ret[$key]['content'];
             $content = iconv("GBK", "UTF-8", $content);
-            if (!is_dir(ROOT_PATH . "/download/$date")) {
-                mkdir(ROOT_PATH . "/download/$date", 0777);
+            if (!is_dir("/data/zhanmo/download/$date")) {
+                mkdir("/data/zhanmo/download/$date", 0777);
             }
-            error_log($content, 3, ROOT_PATH . "/download/$date/{$symbol}.xls");
+            error_log($content, 3, "/data/zhanmo/download/$date/{$symbol}.xls");
         }
     }
 
@@ -83,7 +83,7 @@ class DailyTradeDetail
     //样本 getDailyDetail('sh600000', 20171012);
     static function getDailyDetail($symbol, $date)
     {
-        $content = file_get_contents(ROOT_PATH . "/download/$date/{$symbol}.xls");
+        $content = file_get_contents("/data/zhanmo/download/$date/{$symbol}.xls");
         $info    = self::getFormmatedInfo($content);
 
         if (empty($info)) {
