@@ -4,7 +4,7 @@
 <body>
 <div id="main_mask">
     <div id="show">
-        <iframe src="/null.html" width="620" height="510" marginheight="0" marginwidth="0" frameborder="0"
+        <iframe src="/null.html" width="570" height="630" marginheight="0" marginwidth="0" frameborder="0"
                 scrolling="no"></iframe>
         <span></span>
     </div>
@@ -25,8 +25,8 @@ foreach (eastHistory::getRecords() as $item) {
     ?>
     <div class="chart_container" id="chart_container_<?= $symbol ?>">
         <div class="chart_mask"></div>
-        <iframe class="small" src="" width="620" height="610"
-                style="margin:5px;" marginheight="0" marginwidth="0" frameborder="0" scrolling="no"></iframe>
+        <iframe class="small" src="" width="573" height="296"
+                style="" marginheight="0" marginwidth="0" frameborder="0" scrolling="no"></iframe>
         <span></span>
     </div>
     <?
@@ -36,7 +36,6 @@ foreach (eastHistory::getRecords() as $item) {
 <script>
     var names = <?=json_encode($names)?>;
     var iframe_url_common = '<?=$iframe_url_common?>';
-    var refresh_time = <?=$type == 'now' ? 5 : 30?>;
-
+    var refresh_time = <?=$type == 'now' ? 30 : 60?>;
 </script>
 <script src="/static/page/east/chart.js"></script>

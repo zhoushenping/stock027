@@ -1,0 +1,79 @@
+/*投资易推广*/
+.fl{float: left;}
+.fr{float: right;}
+.block_hq .hq_L{border-bottom: 0;}
+.blk-tg-tzy01{border-top: 2px solid #f0f3fa;margin-top: 5px;padding: 15px 0;}
+.tzy-tit01{font-weight: bold;color:#014ea5;}
+.tit-mark01{display: inline-block;*display: inline;*zoom:1;width: 10px;height: 10px;background:url('http://n.sinaimg.cn/finance/hqimg20160510/tzy_commom.png') no-repeat 0 -184px;margin-left: 8px;vertical-align: middle;}
+.tit-mark02{display: inline-block;*display: inline;*zoom:1;width: 17px;height:17px;background:url('http://n.sinaimg.cn/finance/hqimg20160510/tzy_commom.png') no-repeat 0 -149px;padding-right: 8px;vertical-align: middle;}
+.tzy-tip01{font-size: 14px;color:#014ea5;float:right;}
+.item-tzy01{line-height: 25px;float: left;width: 165px;border-right:1px dashed #bababa;padding: 0 12px;}
+.tzy01-lists{margin-top: 15px;}
+.item-tzy01 .item-tit a{color:#a20c17;font-size: 14px;}
+.item-tzy01 .item-tit a:hover{text-decoration: underline;}
+.item-tip i{font-style: normal;}
+.item-tzy01 .mark{background: #ff2400;height:;display: inline-block;*display: inline;*zoom:1;padding: 0 4px;text-align: center;color:#fff;margin-right: 8px;}
+.item-tzy01 .first-tip{background: #ff2400;}
+.item-tzy01 .second-tip{background: #ff6c00;}
+.item-tzy01 .third-tip{background: #ffba00;}
+.tzy01-lists .no-pl{padding-left: 0!important;}
+.tzy01-lists .no-rbd{border-right: 0;}
+.item-tzy01 .item-name{color:#09237a;}
+.blk-tg-tzy01 .item-name a:hover{color:#09237a;}
+
+.fc-red{color: #ff0000;}
+
+.blk-tg-tzy02{float: right;width: 230px;}
+.blk-tg-tzy02 .tzy-tit{position:relative;font-family: '微软雅黑';font-weight:bold;width:100%;height:32px;line-height: 25px;color:#fff;font-size: 17px;text-align: center;background: url('http://n.sinaimg.cn/finance/hqimg20160510/tzy_commom.png') no-repeat 0 0;}
+.tzy-contain{padding: 0 10px;background: #f9fafc;border: 1px solid #e4e4e6;border-top: 0;font-size: 12px}
+.tzy-lists .item-list{padding: 7px 0 8px;border-bottom:1px dashed #bababa;}
+.last-item{border-bottom:0!important;}
+.tzy-item-tit{position: relative;padding-left:42px;line-height: 17px;height: 17px;font-size: 16px;color: #08237a;margin-bottom: 4px;font-weight: bold;text-overflow:ellipsis;white-space:nowrap;overflow: hidden;}
+.tzy-item-tit iframe{color:#08237a;}
+.tzy-item-tit .icon-mark{position: absolute;top:0;left:0;width:37px;height: 17px;background:url('http://n.sinaimg.cn/finance/hqimg20160510/tzy_commom.png') no-repeat 0 -44px;}
+.tzy-item-tit .icon-tit0{background-position: 0 -44px;}
+.tzy-item-tit .icon-tit1{background-position: 0 -76px;}
+.tzy-item-tit .icon-tit2{background-position: 0 -112px;}
+.tzy-item-hot ,.tzy-item-time ,.tzy-item-qx{margin-bottom: 0;}
+.tzy-item-time{color:#7e7e7e;}
+.hot-tit,.qx-tit{color:#4c4c4c;}
+.hot-num{color:#ef3926;}
+.tzy-item-qx{position: relative;}
+.qx-tit .qx-fcred{color:#f62635;}
+.qx-tit .qx-fcgreen{color:#008000;}
+.qx-tit .qx-fcgrey{color:#868686;}
+
+.qx-percent{display: block;position: absolute;right:0px;top: 3px;width: 115px;border: 1px solid #aeaeaf;background: #fff;height: 12px;}
+.qx-percent i{position: relative;height: 13px;line-height:16px;position: absolute;left:0;top:-1px;width: 15%;background:#f62635;font-style: normal;color:#fff;}
+.qx-percent .qx-red{background-color:#f62635;}
+.qx-percent .qx-green{background-color:#008000;}
+.qx-percent .qx-grey{background-color:#868686;}
+.tzy-item-txt{color:#08237a;margin-bottom: 3px;}
+.item-list a:hover{text-decoration: none;}
+.tzy-item-qx a{color:inherit;}
+.item-symbol{display: block;width: 86px;border:1px solid #08237a;border-top: 4px solid #08237a;background: #fff;text-align: center;padding: 0 5px;color:#08237a;}
+.tzy-symbol-item{display: block;text-align: center;width: 100%;color:#08237a;}
+.item-symbol-up{border-color:#f62635;}
+.item-symbol-down{border-color:#008000;}
+.item-symbol-stop{border-color:#aeaeaf;}
+.item-symbol:hover span.fc-down,.fc-down{color:#008000!important;}
+.item-symbol:hover span.fc-up,.fc-up{color:#f62635!important;}
+.item-symbol:hover span.fc-stop,.fc-stop{color:#aeaeaf!important;}
+.blk-tg-tzy03{text-align: left;color:#fc5b3c;line-height: 20px;height: 20px;padding-bottom: 5px;}
+.blk-tg-tzy03 .msg-tip{display: inline-block;width: 13px;height: 13px;background: url('http://n.sinaimg.cn/finance/hqimg20160510/tzy_commom.png') no-repeat 0 -211px;/* padding-right: .5em; */*display: inline;*zoom:1;position: relative;
+    top: -3px;}
+.blk-tg-tzy03 a{color:#fc5b3c;}
+.tzy-item-txt{text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+.i-newmark{display: inline-block;*display: inline;*zoom:1;width: 21px; height: 16px; left: 5px; position: relative; background: url('http://n.sinaimg.cn/finance/hqimg20160510/tzy_commom.png') no-repeat 0 -271px;}
+.i-newmark02{position: absolute;width: 33px;height:30px;background: url('http://n.sinaimg.cn/finance/hqimg20160510/tzy_commom.png') no-repeat 0 -233px;right: 12px;top: -13px;}
+.item-symbol:hover{text-decoration: underline!important;}
+.item-list a:visited{color:#08237a;}
+.item-list a:hover{text-decoration: underline;color:#08237a}
+.i-flash-marktip{display: inline-block;*display: inline;*zoom:1;width: 18px;height: 19px;background: url('http://n.sinaimg.cn/finance/hqimg20160510/tzy_commom.png') no-repeat 0 -312px;vertical-align: top;padding-right: 5px;}
+.tip-flash:hover{cursor:pointer;}
+.tip-flash{display: none;position: relative;color:#ff0103;padding-top: 10px;position: relative;top: -10px;}
+.i-triangle{position: absolute;background: url('http://n.sinaimg.cn/finance/hqimg20160510/tzy_commom.png') no-repeat 0 -296px;width: 12px;height:10px;bottom: -7px;left:50%;margin-left: -6px;}
+.blk-flash-tip{display:none;width:152px;height:65px;position:absolute;z-index: 305;background: #fff;right: 0;top: -80px;padding-bottom: 4px;border:1px solid #8d8d8d;border-radius: 3px;padding:10px 5px;color:#252525;}
+.blk-flash-tip a{color:#3e4bfc;}
+.f_ask{z-index:99!important;}
+.h5_lv1_added_con{z-index:10!important;}

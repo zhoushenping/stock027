@@ -1,0 +1,32 @@
+/*.main_wrap{margin-top:20px;}*/
+.L{float:left;width:185px;border-right:1px solid #d9e2e7; }
+.L_0{margin-top:33px;}
+.L .more{margin-right:7px;}
+.L .title_first{_position:relative; margin-top:-26px;}
+/*.R{float:right;width:775px;}*/
+.block_hq{}
+.block_hq .hq_L{float:left;width:560px;padding-bottom:10px;border-bottom:8px solid #f0f3fa;}
+.block_hq .hq_R{float:right;width:195px;}
+.hq_details{height:95px;}
+.hq_details .price_time{width:155px;padding-right:18px;}
+.has_limit .price{height:55px;}
+.has_limit .change{margin-top:0px;}
+.has_limit #arrow{margin-top:3px;}
+.has_limit #price{line-height:31px;}
+.ud_limit{display:none;}
+.has_limit .ud_limit{display:block;clear:both;height:23px;border-top:1px solid #E1E8F5;line-height:23px;color:#08237a;}
+.has_limit .ud_limit div{float:left;width:49.9%;}
+
+.hq_details .other{width:375px;line-height:21px;}
+.block_hq .hq_R .data_table table{line-height:24px;}
+.trade_info .trade_info_cont tbody{line-height:25px;}
+/*.attention .cont{display:none;}*/
+
+.AD_R{height:130px;}
+.AD_hqbottom{float:right;width:775px;height:90px;overflow:hidden;}
+
+.hydb_title h2{float:left;}
+.hydb_title .vselect{float:right;width:100px;margin-right:1px;background-color:transparent;}
+.hydb_title .vselect .voptions{width:100%;}
+.hydb_column tbody td{padding-right:7px;}
+.attention .on{background-image:none;}

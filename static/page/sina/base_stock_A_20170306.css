@@ -1,0 +1,620 @@
+@charset "gb2312";
+/* ================== css reset ================== */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img,blockquote { margin:0; padding:0; }
+h1, h2, h3, h4, h5, h6{ font-weight:normal; }
+fieldset, img { border:none; }
+address, caption, cite, code, dfn, th, var,em { font-style:normal; font-weight:normal; }
+ul, ol, li { list-style:none; }
+select, input { vertical-align:middle; }
+select, input, textarea { font-size:12px; margin:0; }
+table { border-collapse:collapse; }
+body { background:#fff; color:#333; padding:5px 0; font:12px/20px "黑体";
+    font-family: "Open Sans", Arial, "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", "STHeiti", "WenQuanYi Micro Hei", SimSun, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+.clearfix:after { content:"."; display:block; height:0; visibility:hidden; clear:both; }
+.clearfix { zoom:1; }
+.clearit { clear:both; height:10px; font-size:0; overflow:hidden;zoom:1; }
+a { color:#09237a; text-decoration:none; }
+a:visited { color:#800080; }
+a:hover, a:active, a:focus { color:#f00; text-decoration:underline;}
+.blue_d,a.a_blue_d_all,.a_blue_d_all a{color:#08237a;}
+a.a_blue_d_all:visited,.a_blue_d_all a:visited{color:#08237a;}
+a.a_blue_d_all:hover,.a_blue_d_all a:hover{color:#f00;}
+.blue_l,a.a_blue_l_all,.a_blue_l_all a{color:#3d6cb0;}
+a.a_blue_l_all:visited,.a_blue_l_all a:visited{color:#3d6cb0;}
+a.a_blue_l_all:hover,.a_blue_l_all a:hover{color:#f00;}
+a.a_blue_d_s,a_blue_d_s a{color:#08237a;}
+a.a_blue_d_s:visited,a_blue_d_s a:visited{color:#08237a;}
+a.a_blue_d_s:hover,a_blue_d_s a:hover{color:#08237a; text-decoration:none;}
+a.a_blue_d_s:active,a_blue_d_s a:active{color:#08237a; text-decoration:none;}
+a.a_blue_d_s:focus,a_blue_d_s a:focus{color:#08237a; text-decoration:none;}
+a.a_blue_l_s,a_blue_l_s a{color:#3d6cb0;}
+a.a_blue_l_s:visited,a_blue_l_s a:visited{color:#3d6cb0;}
+a.a_blue_l_s:hover,a_blue_l_s a:hover{color:#3d6cb0; text-decoration:none;}
+a.a_blue_l_s:active,a_blue_l_s a:active{color:#3d6cb0; text-decoration:none;}
+a.a_blue_l_s:focus,a_blue_l_s a:focus{color:#3d6cb0; text-decoration:none;}
+/*.wrap { width:980px; margin:0 auto; }*/
+.hideword{line-height:100px;overflow:hidden;zoom:1;}
+.up,.rup_up,.gup_down,.us_down,.hk_down{color:Red;}
+.down,.rup_down,.gup_up,.us_up,.hk_up{color:Green;}
+.spliter_5{height:5px;overflow:hidden;clear:both;}
+.spliter_10{height:10px;overflow:hidden;clear:both;}
+.spliter_15{height:15px;overflow:hidden;clear:both;}
+.spliter_20{height:20px;overflow:hidden;clear:both;}
+.button_blue{display:inline-block;width:63px;height:20px;line-height:20px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -380px -72px;color:White;border:none;cursor:pointer;text-align:center;}
+.button_blue:visited{color:White;}
+.button_blue:hover{text-decoration:none;color:White;}
+img.vip{width:14px;height:11px;background:url(http://i2.sinaimg.cn/cj/realstock/2012/images/icon_right.2.png) right -280px;}
+img.vip_c{width:14px;height:11px;background:url(http://i2.sinaimg.cn/cj/realstock/2012/images/icon_right.2.png) right -312px;}
+.dotted_line{height:1px;overflow:hidden;background:url(http://i1.sinaimg.cn/cj/realstock/2012/images/dotted.png) repeat-x;}
+/* 顶导 */
+.secondaryHeader{height:33px;padding-bottom:5px;overflow:hidden;background:url(http://www.sinaimg.cn/dy/images/header/2008/standardl2nav_bg.gif) repeat-x #fff;color:#000;font-size:12px;font-weight:100;}
+.secondaryHeader a,.secondaryHeader a:visited{color:#000;text-decoration:none;}
+.secondaryHeader a:hover,.secondaryHeader a:active{color:#c00;text-decoration:underline;}
+.sHBorder{border:1px #e3e3e3 solid;padding:0 10px 0 12px;overflow:hidden;zoom:1;}
+.sHLogo{float:left;height:31px;line-height:31px;overflow:hidden;}
+.sHLogo span,.sHLogo span a,.sHLogo span a:link,.sHLogo span a:visited,.sHLogo span a:hover{display:block;*float:left;display:table-cell;vertical-align:middle;*display:block;*font-size:27px;*font-family:Arial;height:31px;}
+.sHLogo span,.sHLogo span a img,.sHLogo span a:link img,.sHLogo span a:visited img,.sHLogo span a:hover img{vertical-align:middle;}
+.sHLinks{float:right;line-height:31px;}
+.sHBorder img{border:0}
+.global_index_scroller .scroller_oper{padding-right:0;}
+/*导航*/
+.nav{height:40px;line-height:40px;background:url(http://i0.sinaimg.cn/cj/realstock/2012/images/back_r_h.2.png) 0 0 repeat-x;}
+.nav .wrap{background:url(http://i0.sinaimg.cn/cj/realstock/2012/images/back_r_h.2.png) 0 0 repeat-x;}
+.nav .index{display:inline-block;width:116px;height:40px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -184px -216px;margin:0;margin-right:10px;}
+.nav a,.nav span{margin:0 7px; vertical-align:middle;}
+.nav a{color:White;}
+.nav a:visited{color:White;}
+.nav .spliter{display:inline-block;width:2px;height:40px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -472px -162px;}
+.nav .a_right{float:right;line-height:40px;height:40px;margin-right:0px;}
+.nav .a_right a,.nav .a_right a:visited{color:#90a9ce;margin-right:0px;}
+.nav .a_right a:hover,.nav .a_right a:active,.nav .a_right a:focus{color:#f00;}
+.nav .jxDown{float:right;margin:7px 0px 0 0;width:75px;height:27px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -424px 0;cursor:pointer;}
+.nav .jx_on{height:33px;background-position:-512px 0px;}
+/*股市雷达*/
+.radar{height:30px;line-height:30px;margin-bottom:1px;background-color:#d4e4ff;}
+#STOCKRADAR_SHOW_DIV{background:url(http://www.sinaimg.cn/cj/financewidget/image/stockradarlogo2.gif) transparent 7px 2px no-repeat;}
+#STOCKRADAR_SHOW_DIV a span{color:#08237a;}
+#STOCKRADAR_SHOW_DIV a:hover span{color:#f00;}
+/*顶tui*/
+.tui{line-height:28px;background-color:#f5faff;border-bottom:1px solid #c1dcf9;margin-bottom:1px;}
+.tui .title{display:inline-block;padding-right:8px;background:url(http://i2.sinaimg.cn/cj/realstock/2012/images/icon_right.2.png) right -447px no-repeat;}
+.tui .list a{margin:0 1px;}
+/*面包屑、搜索*/
+.topbar{background:url(http://i0.sinaimg.cn/cj/realstock/2012/images/back_r_h.2.png) 0 -176px repeat-x; height :32px;}
+.topbar .wrap{}
+.topbar .crumbs{float:left;color:#8f8f8f;line-height:32px;}
+.topbar .crumbs span{color:#062784;}
+.topbar .search{float:right;position:relative;margin-top:5px;*margin-top:4px;}
+.topbar .search input{float:left;vertical-align:middle;}
+.topbar .search .txt{width:214px;height:18px;padding:1px 3px;line-height:18px;color:#8c8c8c;border:1px solid #c2c2c2;border-right:none;}
+.topbar .search .btn{width:59px;height:22px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -216px 0;border:none;padding:0;cursor:pointer;}
+.topbar .promot{position:relative;float:right;height:32px;line-height:32px;padding-right:10px;width:430px;margin-right:10px;overflow:hidden;}
+#breakingNews{position:absolute; white-space:nowrap;}
+#breakingNews a{zoom:1;}
+#breakingNews span{display:inline-block;width:100px;color:#8f8f8f;zoom:1;}
+/*标签切换??通用*/
+.tabs{height:30px;overflow:hidden;font-size:16px;color:#08237a;text-align:center;font-family:微软雅黑,宋体;}
+.tabs .tab{float:left;height:28px;background-color:#f7faff;border:1px solid #cce2f0;border-left:none;line-height:28px;cursor:pointer;}
+.tabs .tab a,.tabs .tab a:visited{color:#08237a;}
+.tabs .tab a:hover{color:#f00;}
+.tabs .last{margin-right:-1px;}
+.tabs .on{border-top:2px solid #062784;border-bottom:none;line-height:26px;background-color:White;cursor:default;}
+/*最近访问股、自选??通用*/
+.v_p{}
+.v_p .tabs{}
+.v_p .tabs .tab{width:92px;}
+.v_p .cont{display:none;height:344px;overflow:hidden;border-bottom:1px solid #d9e2e7;}
+.data_table table{line-height:26px;width:100%;}
+.data_table thead{color:#035dbe; text-align:center;}
+.data_table thead th,.data_table thead td{padding:4px 0 1px;}
+.data_table thead a,.data_table thead a:visited{color:#035dbe;cursor:pointer;}
+.data_table thead a:hover,.data_table thead a:active,.data_table thead a:focus{text-decoration:none;color:Silver;outline:none;}
+.data_table thead .sort_up{padding-right:7px;margin-right:3px;background:url(http://i2.sinaimg.cn/cj/realstock/2012/images/icon_right.2.png) right -248px no-repeat;}
+.data_table thead .sort_down{padding-right:7px;margin-right:3px;background:url(http://i2.sinaimg.cn/cj/realstock/2012/images/icon_right.2.png) right -224px no-repeat;}
+.data_table .row_0{}
+.data_table .row_1{background-color:#f9fafc;}
+.data_table .hot_title{border-top:1px solid #dce5f5;background-color:#f9fafc;color:#035dbe;text-align:center;}
+.data_table .boder-bottom td,.data_table .boder-bottom th{border-bottom:1px solid #dce5f5;background-color:#fcfcfe;}
+.data_table tbody th{text-align:left;padding-left:10px;}
+.data_table tbody td{text-align:right;padding-right:16px;}
+.data_table tbody td *{vertical-align:middle;}
+.data_table tbody td em{display:none;margin-left:1px;margin-right:-15px;cursor:pointer;width:14px;height:14px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -184px 0;}
+
+.v_p tbody th{text-align:left;padding-left:2px;width:35%;}
+.v_p tbody td{text-align:right;padding-right:14px;}
+.v_p tbody td:first-of-type{text-align:right;padding-right:4px;}
+
+#portLoginFalse{padding-top:95px;padding-left:35px;line-height:26px;}
+#portLoginTrue{display:none;}
+.v_p .port_hq{height:292px;overflow:hidden;}
+.v_p .port_m_link{text-align:center;line-height:26px;}
+.v_p .port_nick{background-color:#f9fafc;line-height:26px;}
+.v_p #portNick{float:left;width:125px;white-space:nowrap;height:26px;margin-right:10px;overflow:hidden;text-align:center;}
+/*蓝下边、棕下边标题??通用*/
+.title_blue{height:24px;line-height:24px;border-bottom:2px solid #08237a;}
+.title_blue h2{font-size:18px;font-family:微软雅黑,黑体;color:#012793;}
+.title_blue h2 a,.title_blue h2 a:visited,.title_blue h2 a:hover,.title_blue h2 a:active,.title_blue h2 a:focus{color:#08237a; text-decoration:none;}
+.title_brown{height:26px;line-height:26px;border-bottom:1px solid #a20c17;}
+.title_brown h2{display:inline;font-size:18px;font-family:微软雅黑,黑体;color:#012793;padding-right:16px;background:url(http://i2.sinaimg.cn/cj/realstock/2012/images/icon_right.2.png) right -193px no-repeat;}
+.title_brown h2 a,.title_brown h2 a:visited,.title_brown h2 a:hover,.title_brown h2 a:active,.title_brown h2 a:focus{color:#08237a; text-decoration:none;}
+.more{float:right;display:inline;padding-right:8px;background:url(http://i2.sinaimg.cn/cj/realstock/2012/images/icon_right.2.png) right -90px no-repeat;*background-position:right -91px;color:#7e7e7e;line-height:24px;}
+.title_brown .more{margin-top:1px;}
+.more:visited{color:#7e7e7e;}
+.more:hover{color:#045ebe;background-position:right -66px;*background-position:right -67px;text-decoration:none;}
+/*蓝点li??通用*/
+.li_point li{padding-left:10px;background:url(http://i0.sinaimg.cn/cj/realstock/2012/images/icon_left.png) left -78px no-repeat;line-height:24px;}
+/*热点栏目*/
+.hot_column{padding-top:5px;}
+.hot_column li{float:left;width:49%;margin-right:-10px;}
+/*个股涨幅榜*/
+.stock_rank_changeP_title .more{margin-right:7px;}
+.stock_rank_changeP{border-bottom:1px solid #d9e2e7;}
+/*行情块*/
+.hq_title{height:26px;line-height:26px;/*padding-bottom:11px;*/background:url(http://i0.sinaimg.cn/cj/realstock/2012/images/back_r_h.2.png) 0 -43px repeat-x;overflow:hidden;}
+.hq_title h1{float:left;padding-left:10px;background:url(http://i0.sinaimg.cn/cj/realstock/2012/images/icon_left.png) 0 -109px no-repeat;font-size:18px;/*font-family:微软雅黑,黑体*/;color:#012793;}
+.hq_title h1 span{margin-left:6px;font-size:12px;/*font-family:宋体;*/}
+.hq_title .add_port{float:right;display:inline;margin-right:5px;margin-top:5px;padding-left:15px;background:url(http://i0.sinaimg.cn/cj/realstock/2012/images/icon_left.png) 0 -56px no-repeat;*background-position:0 -57px;}
+.hq_title .stock_tip{float:left;margin-left:4px;}
+.hq_title .stock_tip .stock_h2a{ float: left; display: inline; width: 29px; height: 29px;}
+.hq_title .stock_tip a{float:left;margin-right:4px;height:29px;background:url(http://www.sinaimg.cn/cj/deco/2015/0817/back.9.png);}
+.hq_title .stock_tip .t_l2{width:30px;background-position:-734px -216px;}
+.hq_title .stock_tip .t_l2pjb{width:30px;background-position:-687px -216px;}
+.hq_title .stock_tip .t_l2buy{width:29px;background-position:-780px -216px;}
+.hq_title .stock_tip .t_300{width:29px;background-position:-488px -216px;}
+.hq_title .stock_tip .t_rong{width:29px;background-position:-448px -216px;}
+.hq_title .stock_tip .t_jing{width:29px;background-position:-528px -216px;}
+.hq_title .stock_tip .t_buy{width:29px;background-position:-999em -216px;}
+.hq_title .stock_tip .t_buy img{ margin:-3px 0 0 -4px}
+.hq_title .stock_tip .ws_no { float:left;width:81px;height:23px;margin-left:5px;background:url(http://www.sinaimg.cn/cj/usstock/images/change_btn.3.png) 0px 0px;text-indent:-9999px;overflow:hidden;}
+.hq_title .stock_tip .ws_no:hover { background-position:-83px 0px;}
+.hq_title .stock_tip .ws_no_on { background-position:-166px 0px;}
+.hq_title .stock_tip .ws_yes { float:left;width:68px;height:23px;margin-left:5px;background:url(http://www.sinaimg.cn/cj/usstock/images/change_btn.3.png) -12px -34px;text-indent:-9999px;overflow:hidden;}
+.hq_title .stock_tip .ws_yes:hover { background-position:-85px -34px;}
+.hq_title .stock_tip .ws_yes_on { background-position:-158px -34px;}
+.stock_tip .ws_no,.stock_tip .ws_yes{position: relative;top:4px;}
+
+
+.hq_details{height:102px;}
+.hq_details .price_time{float:left;width:180px;margin-top:12px;padding:0 26px 0px 9px;border-right:1px solid #e1e8f5;}
+.hq_details .price{height:43px;}
+.hq_details #price{float:right;padding-right:6px;text-align:right;font-size:24px;/*为了美观设大了字体，如果出现千元股需要改！*/line-height:43px;font-family:Arial;}
+.hq_details #arrow{float:right;width:21px;height:22px;margin-top:9px;}
+.hq_details .arrow{background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -576px -160px;}
+.hq_details .arrow_up{background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -544px -160px;}
+.hq_details .arrow_down{background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -512px -160px;}
+.hq_details .arrow_flat{background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -576px -160px;}
+.hq_details .change{float:right;padding-left:5px;margin-top:5px;text-align:right;line-height:16px;}
+.hq_details #change{}
+.hq_details #changeP{}
+.hq_details #closed{display:none;text-align:center;font-family:微软雅黑,黑体;font-size:24px;line-height:36px;color:Red;text-align:center;}
+.hq_details .time{border-top:1px solid #e1e8f5;text-align:center;}
+#hqPause{display:none;color:#A0A0A0;}
+.hq_details .other{float:right;width:320px;margin-top:5px;color:#3d6cb0;line-height:22px;}
+.hq_details .other table{width:100%;}
+.hq_details .other table th{text-align:right;color:#062784; white-space: nowrap;}
+.hq_details .other table td{}
+/*相关行情条*/
+.hq_related{height:29px;line-height:29px;padding:0 10px;background-color:#eef5ff;overflow:hidden;}
+.hq_related sub{font-size:10px;}
+.hq_related .hq_r_bj_name{color:#999999;}
+.hq_related .hq_r_bk_name sub{color:#999999;}
+/*信息地雷*/
+.hq_notice{height:29px;line-height:29px;padding:0 10px;background-color:#fdfeff;border:1px solid #dce5f4;}
+.hq_notice .hq_notice_title{float:left;width:60px;}
+.hq_notice .hq_notice_cont{float:left;width:460px;height:29px;overflow:hidden;}
+.hq_notice .hq_notice_cont li{height:29px;overflow:hidden;}
+.hq_notice .hq_notice_btn{float:right;width:10px;}
+.hq_notice .hq_notice_btn a{float:right;width:9px;height:5px;overflow:hidden;cursor:pointer;background:url(http://i2.sinaimg.cn/cj/realstock/2012/images/icon_right.2.png);}
+.hq_notice .hq_notice_btn .hq_notice_up{background-position:right -344px;margin-top:6px;}
+.hq_notice .hq_notice_btn .hq_notice_down{background-position:right -360px;margin-top:8px;}
+
+.hq_lcs_t { height:29px;line-height:29px;padding:0 10px;background-color:#eef5ff;overflow:hidden;}
+.ellipsis { display: block; overflow: hidden; white-space: nowrap; word-break: keep-all; text-overflow: ellipsis; }
+.hq_lcs_t.nothing h3 {width:94%;}
+.hq_lcs_t.nothing .lcs_more {display:none;}
+.hq_lcs_t .lcs_left {width:305px; float:left;}
+.hq_lcs_t .lcs_right {padding-left: 315px;}
+.hq_lcs_t .lcs_right a {color:red;}
+.hq_lcs_t h3 {width:235px;float:left;margin-left:-10px; font-size:12px;color: #08237A;font-weight: bold;padding-left:30px;background:url(http://i0.sinaimg.cn/cj/realstock/2012/images/lcs_nv.gif) 0 0 no-repeat;}
+.hq_lcs_t .lcs_more,.hq_lcs_t .lcs_more:visited { float:right;color:#3D6CB0;}
+.hq_lcs_t .lcs_more:hover, .hq_lcs_t .lcs_more:active { color:#abb4d3;text-decoration:underline;}
+.hq_lcs_c { margin-bottom:10px;}
+.hq_lcs_s { overflow:hidden;height:29px;}
+.hq_lcs_author { float:left;}
+.hq_lcs_img {float:left;margin-top:4px; width:20px;height:20px;margin-right:7px;}
+
+/*flash*/
+.flash{height:490px;width:100%;overflow:hidden;}
+/*图片版样式*/
+#picContainer{display:none;}
+#picContainer img{margin-top:18px;}
+.pic_tabs{border:1px solid #dde4f4;padding-top:1px;}
+.pic_tabs .tabs{height:25px;padding:2px 7px 0;background:#eef5ff url(http://i2.sinaimg.cn/cj/realstock/2012/images/icon_right.2.png) right -384px no-repeat;overflow:visible;}
+.pic_tabs .tabs .tab{width:57px;height:23px;line-height:23px;border:none;border-top:2px solid #eef5ff;font-family:宋体;font-size:12px;}
+.pic_tabs .tabs .on{position:relative;z-index:1;width:55px;height:24px;_height:25px;_margin-bottom:-1px;border-left:1px solid #dde4f4;border-right:1px solid #dde4f4;border-top-color:#062784;background-color:White;}
+#picContainer .cont{display:none;height:330px;padding:10px 0;text-align:center;}
+#picContainer .vselect{float:left;margin-bottom:-20px;margin-top:-5px;}
+#picContainer .compare{height:0px;overflow:hidden;}
+/*走势对比*/
+.compare{height:30px;line-height:30px;padding-top:14px;margin-top:5px;border-top:1px solid #dce5f5;}
+.compare .title{float:left;width:86px;height:30px;border-right:1px solid #e0e8f5;text-indent:5px;font-weight:bold;color:#014ea5;}
+.compare .cont{position:relative;float:left;margin-left:12px;}
+.compare .cont .compare_msg{display:none;position:absolute;left:0px;top:-30px;width:160px;padding-left:40px;height:28px;line-height:28px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -970px 4px no-repeat;background-color:#FEFFA2;color:#585858;}
+.compare .cont .index{position:relative;display:inline-block;*display:inline;zoom:1;width:65px;height:30px;background:url(http://i2.sinaimg.cn/cj/realstock/2012/images/icon_right.2.png) right -116px no-repeat;cursor:pointer;vertical-align:middle;}
+.compare .cont .is{display:none;position:absolute;left:-1px;top:25px;width:65px;border:1px solid #cde3f0;border-bottom:none;background-color:#eef5ff;line-height:25px;}
+.compare .cont .is a{display:block;border-bottom:1px solid #cde3f0;text-indent:5px;}
+.compare .cont .is a:visited{color:#08237c;}
+.compare .cont .is a:hover{background-color:White;color:#005dbf;text-decoration:none;}
+.compare .cont .txt{width:227px;height:18px;padding:1px 3px;margin:0;margin-left:10px;border:1px solid #c2c2c2;border-right:0px;line-height:18px;vertical-align:middle;color:#8C8C8C;}
+#compareBtn{display:inline-block;width:58px;height:22px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -184px -72px;color:white;text-align:center;line-height:22px;vertical-align:middle;}
+#compareBtn:visited{color:White;}
+#compareBtn:hover,#compareBtn:active,#compareBtn:focus{background-position:-184px -94px;text-decoration:none;}
+/*同时被关注*/
+.attention{}
+.attention .title{float:left;width:86px;height:63px;padding-top:5px;/*border-right:1px solid #e0e8f5;*/text-indent:5px;font-weight:bold;color:#014ea5;}
+.attention .cont{float:left;width:455px;padding-left:12px;padding-top:3px;border-left:1px solid #E0E8F5;line-height:23px;height:65px;overflow:hidden;zoom:1;}
+.attention .cont li{float:left;width:33%;}
+.attention .cont .add_compare{display:none;color:#26539b;}
+.attention .cont .add_compare:visited{color:#26539b;}
+.attention .cont .add_compare:hover{color:#f00;text-decoration:none;}
+.attention .attention_types{float:left;width:86px;height:68px;text-indent:16px;}
+.attention .attention_type{height:22px;line-height:22px;/*border-right:1px solid #e0e8f5;*/cursor:pointer;}
+.attention .on{height:24px;line-height:24px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -528px -72px;border-right:none;font-weight:bold;overflow:hidden;cursor:default;}
+/*沪深股市概况*/
+.hs_ud{height:137px;padding-top:6px;}
+.hs_ud div{height:14px;line-height:14px;padding:6px 0;overflow:hidden;}
+.hs_ud .ud_name{float:left;}
+.hs_ud .total{float:right;width:170px;background-color:#008000;color:White;text-align:center;}
+.hs_ud .total a,.hs_ud .total a:visited{color:White; text-decoration:none;}
+.hs_ud .total a:hover,.hs_ud .total a:active{color:White;text-decoration:none;}
+.hs_ud .hs_up{float:left;background-color:#ff0103;width:33%;}
+.hs_ud .hs_flat{float:left;background-color:#707070;width:33%;}
+.hs_ud .legend{height:36px;padding:0;line-height:36px;text-align:center;}
+.hs_ud .legend span{}
+.hs_ud .legend span *{vertical-align:baseline;*vertical-align:middle;}
+.hs_ud .legend em{display:inline-block;width:8px;height:8px;overflow:hidden;margin-right:5px;}
+.hs_ud .legend .l_up{background-color:#ff0103;}
+.hs_ud .legend .l_flat{background-color:#707070;}
+.hs_ud .legend .l_down{background-color:#008000;}
+/*五档盘口*/
+.trade_buy .tab{width:96px;}
+.bar_bets{}
+.bar_bets .bar_bets_in{float:left;width:49%;}
+.bar_bets .bar_bets_out{float:left;width:49%;}
+/*交易统计*/
+.trade_info{}
+.trade_info .tabs{}
+.trade_info .tab{width:48px;}
+.trade_info_cont{display:none;height:304px;}
+.trade_info_cont tbody td{padding-right:5px;}
+.trade_info .trade_info_link{padding-top:15px;text-align:center;line-height:20px;}
+.trade_info .equal{color:#7f7f7f;}
+
+.AD_R{height:130px;overflow:hidden;}
+.AD_hqbottom{}
+
+.block{}
+.block_border{padding-bottom:15px;border-bottom:7px solid #f7f9fc;}
+.block .block_t{height:37px;border-top:4px solid #08237a;background:url(http://i0.sinaimg.cn/cj/realstock/2012/images/back_r_h.2.png) 0 -96px repeat-x;}
+.block .block_t h1{float:left;height:37px;text-indent:-999px;overflow:hidden;background-image:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png);}
+.block .block_t h1 a{display:block;height:37px;text-indent:-999px;overflow:hidden;}
+/*资讯*/
+.t_info h1{width:94px;background-position:-184px -264px;}
+.block_c{padding-top:15px;}
+.block_blog{float:left;width:184px;margin-right:20px;margin-bottom:-10px;}
+.block_news{float:left;width:538px;margin-bottom:-10px;}
+.block_news li{height:24px;overflow:hidden;}
+.block_news li a{font-size:14px;}
+.block_news .pdf{display:inline-block;height:21px;width:21px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -640px -160px;overflow:hidden;vertical-align:-6px;*vertical-align:-4px;}
+.block_news .lcs_logo { display:inline-block;height:22px;width:42px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/lcs_logo.png);overflow:hidden;vertical-align:-6px;*vertical-align:-4px;}
+.block_comment{float:right;width:215px;margin-bottom:-10px;}
+.block_c_li ul{padding:10px 0;}
+.block_c_li_time li{}
+.block_c_li_time li span{float:right;color:#a0a0a0;}
+.block_comment .comment_t{margin:12px 0 -8px;background:url(http://i1.sinaimg.cn/cj/realstock/2012/images/dotted.png) left center repeat-x;}
+.block_comment .comment_t span{padding-right:10px;background-color:White;font-size:14px;color:#005cbf;}
+/*互动*/
+.t_interact h1{width:88px;background-position:-400px -264px;}
+.block .survey_border_bottom{border-bottom:7px solid #dce5f5;}
+.block_survey{float:left;width:184px;margin-right:20px;}
+.block_survey .survey p{padding:10px 0 5px;}
+.block_survey .survey li{line-height:26px;zoom:1;}
+.block_survey .survey li *{vertical-align:baseline;}
+.block_survey .survey .li_0{background-color:#f9fafc;}
+.block_survey .survey li span{display:inline;float:right;margin-right:25px;}
+.block_survey .survey_submit{padding-top:15px;text-align:center;}
+.block_survey .result{text-align:center;padding:5px 0;}
+/*微博*/
+.block_weibo{float:left;width:538px;}
+.block_weibo .weibo_c{position:relative;height:410px;margin-top:10px;padding-right:5px;overflow:auto;}
+.weibo_c .weibo_s{padding:10px 0;background:url(http://i1.sinaimg.cn/cj/realstock/2012/images/dotted.png) bottom repeat-x;zoom:1;}
+.weibo_c .weibo_head{float:left;width:30px;padding-top:5px;}
+.weibo_c .weibo_cont{padding-left:45px;}
+.weibo_c .weibo_cont p{min-height:40px;word-wrap:break-word;word-break:break-all;}
+.weibo_c .weibo_cont .weibo_img img{padding:3px;border:1px solid #CCC;background-color:White;}
+.weibo_c .weibo_s .arrcon{display:block;height:14px;position:relative;margin-bottom:-1px;clear:both;_margin-top:-20px;}
+.weibo_c .weibo_s .arrcon .arr{border:7px dashed transparent;width:0;height:0;float:right;margin-right:20px;_margin-right:10px;}
+.weibo_c .weibo_s .arrcon .arrin {display:block;border:7px dashed transparent;border-bottom:7px solid #F7F7F7;width:0;height:0;margin-right:-14px;margin-top:2px;margin-bottom:-2px;overflow:hidden;float:right;_margin-top:17px;}
+.weibo_c .weibo_s .feedbackcon{border:1px solid #E5E6E7;clear:both;padding:6px;-moz-border-radius:4px;-webkit-border-radius:4px;border-radius:4px;background-color:#F7F7F7;}
+.weibo_c .weibo_s .txtarea {background-color:White;border-top:1px solid #C4C7BD;border-left:1px solid #D3D6CB;border-bottom:1px solid #F2F2F2;border-right:1px solid #F2F2F2;padding:1px;position:relative;height:28px;}
+.weibo_c .weibo_s textarea{height:28px;width:100%;overflow:hidden;overflow-y:auto;display:block;word-break:break-all;break-word:break-wrap;border:none;border:0;outline:none;resize:none;padding:0;}
+.weibo_c .weibo_s .tips{padding-top:2px;top:1px;position:absolute;left:0px;width:100%;height:25px;text-align:center;background-color:White;}
+.weibo_c .weibo_s .icon_ok,.weibo_c .weibo_s .icon_warning{background:url(http://timg.sjs.sinajs.cn/t35/style/images/thridpart/widget/icon_tips.png) no-repeat;display:inline-block;width:14px;height:14px;margin-right:4px;vertical-align:text-bottom;}
+.weibo_c .weibo_s .icon_warning{background-position:-14px 0;}
+.weibo_c .weibo_s .fdbckspe{margin-top:4px;height:23px;}
+.weibo_c .weibo_s .feedbackcon .btn_s{float:right;width:44px;height:23px;line-height:23px;text-align:center;color:#333;background-image:url(http://timg.sjs.sinajs.cn/t35/style/images/thridpart/widget/skin_01/btn_fwd.gif);}
+.weibo_c .weibo_s .txtrem {float:right;margin-top:-5px;margin-right:8px;font:12px Constantia,Georgia;}
+.weibo_c .weibo_s .txtrem span{font-family:Constantia,Georgia;font-size:22px;font-weight:700;}
+.weibo_c .weibo_s .fdbckspein{float:left;margin-top:4px;}
+.weibo_c .weibo_s .fdbckspein input{float:left;width:14px;margin:3px 3px 0 0;_margin:0;*margin-top:-1px;vertical-align:middle;}
+.weibo_c .weibo_s .fdbckspein label{white-space:nowrap;display:inline-block;}
+
+#weiboMore{display:block;width:100px;margin:0 auto;text-align:center;}
+.weibo_c .hasPic{display:inline-block;width:13px;height:12px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -608px -160px;vertical-align:middle;}
+.weibo_c .weibo_info{overflow:hidden;}
+.weibo_c .weibo_info .weibo_time{float:left;}
+.weibo_c .weibo_info span{float:right;}
+.weibo_c .weibo_info span i{color:#ddccdd;font-style:normal;}
+.weibo_o{position:relative;height:25px;line-height:25px;padding:6px 0 0;background-color:#dce5f5;}
+.weibo_o .weibo_new{float:left;display:inline;margin-left:22px;}
+.weibo_o .weibo_o_r{float:right;width:175px;padding-right:16px;text-align:right;border-left:1px solid #fff;}
+.weibo_o .weibo_write{display:none;position:absolute;left:0px;bottom:32px;width:500px;height:161px;padding:5px 25px;background:white url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -184px -416px;}
+.weibo_o .weibo_new_txtrem{position:absolute;right:25px;top:10px;}
+.weibo_o .weibo_new_txtrem span{font-family:Constantia,Georgia;font-size:22px;font-weight:700;}
+.weibo_c .weibo_new_over span,.weibo_o .weibo_new_over span{color:#DA0000;}
+#weiboNotLogin{text-align:center;}
+#weiboNotLogin p{line-height:40px;}
+#weiboLogined{display:none;}
+.weibo_write p{line-height:35px;}
+.weibo_write textarea{color:#9e9e9e;width:490px;height:60px;padding:1px 4px;margin:0;border:1px solid #dddddd;line-height:20px;resize:none;}
+.weibo_write .weibo_new_submit{text-align:right;padding-top:10px;line-height:20px;}
+#weiboNewSuccess{display:none;text-align:center;}
+#weiboNewSuccess .weiboNewStatus{width:125px;height:20px;margin:10px auto;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -184px -160px;}
+
+/*微博推荐*/
+.block_weibo_recommend{float:right;width:215px;}
+.wr_c{background-color:#f9fafc;}
+.wr_c .go_up{display:block;height:17px;background:url(http://i2.sinaimg.cn/cj/realstock/2012/images/icon_right.2.png) 67px -148px no-repeat; visibility:hidden;}
+.wr_c .go_down{display:block;height:18px;background:url(http://i2.sinaimg.cn/cj/realstock/2012/images/icon_right.2.png) 67px -170px no-repeat;}
+.wr_c .wb_review{position:absolute;right:50%;width:213px;border:1px solid #acc9e9;margin-right:-490px;}
+.wr_c .wb_review .top_arr{position:relative;height:14px;margin-top:-6px;line-height:1px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -528px -104px;}
+.wr_c .wb_review .cont{background-color:#fbfdff;padding:5px 9px;line-height:18px;color:#737373;}
+
+.wrs{height:426px;overflow:hidden;}
+.wrs .wr{height:70px;border-bottom:1px dashed #cfdef5;zoom:1;}
+.wrs .wr .wr_head{float:left;width:56px;padding-top:3px;}
+.wrs .wr .wr_head img{padding:2px;border:1px solid #ccccce;}
+.wrs .wr .wr_details{padding-left:63px;_padding-top:3px;}
+.wrs .wr .wr_details p{height:20px;overflow:hidden;}
+a.add_follow{display:inline-block;width:42px;height:18px;padding-left:16px;color:White;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -456px -96px;line-height:18px;_line-height:20px;}
+a.add_follow:visited{color:White;}
+a.add_follow:hover,a.add_follow:active,a.add_follow:focus{text-decoration:none;color:silver;}
+a.added_follow{display:inline-block;width:42px;height:18px;padding-left:16px;color:White;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -456px -72px;line-height:18px;_line-height:20px;color:#a0a0a0;cursor:default;}
+a.added_follow:visited{color:#a0a0a0;cursor:default;}
+a.added_follow:hover,a.added_follow:active,a.added_follow:focus{text-decoration:none;color:#a0a0a0;cursor:default;}
+/*近期热门贴*/
+.block_hotBBS{float:left;width:184px;margin-right:20px;}
+.block_hotBBS p{height:38px;line-height:38px;}
+/*股吧最新贴*/
+.block_newBBS{float:left;width:538px;margin-bottom:-15px;}
+.block_newBBS .newBBS_title{height:31px;line-height:31px;background-color:#f9fafc;text-align:center;}
+.block_newBBS .write,.block_newBBS .write:visited{float:right;width:99px;height:21px;margin-right:20px;margin-top:2px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -304px 0; line-height:21px;color:#26539b;text-decoration:none;text-align:center;}
+.block_newBBS .write:hover,.block_newBBS .write:active{color:#0091dc;text-decoration:none;}
+.block_newBBS .NBT_0{float:left;width:355px;}
+.block_newBBS .NBT_1{float:left;width:50px;}
+.block_newBBS .NBT_2{float:left;width:50px;}
+.block_newBBS .NBT_3{float:left;width:80px;}
+.block_newBBS li{zoom:1;height:24px;overflow:hidden;*margin-bottom:-4px;}
+.block_newBBS ul{margin-top:15px;zoom:1;}
+.block_newBBS .dotted_line{margin-top:15px;}
+.block_newBBS li a{float:left;width:335px;font-size:14px;}
+.block_newBBS li span{float:left;color:#a0a0a0;text-align:right;}
+.block_newBBS .NBN_0{width:50px;}
+.block_newBBS .NBN_1{width:45px;padding-right:5px;}
+.block_newBBS .NBN_2{width:80px;}
+/*专家做糖*/
+.block_make_sweet{float:right;width:215px;}
+.block_c_sweet{zoom:1;}
+.sweet_cont{position:relative; height:410px;padding-right:5px;overflow:auto;margin:15px 0;}
+.sweet_cont .sweet_ask{position:relative;margin-bottom:10px;border-bottom:1px solid #e3f1fd;zoom:1;}
+.sweet_cont .sweet_ask p{padding:20px 0 5px 18px; }
+.sweet_cont .sweet_ask .mark{position:absolute;left:0px;top:0px;width:38px;height:37px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -336px -160px;}
+.sweet_cont .sweet_info{text-align:right;}
+.sweet_cont .sweet_answer{position:relative;border-bottom:1px solid #e3f1fd;margin-top:-11px;margin-bottom:10px;background-color:White;zoom:1;}
+.sweet_cont .sweet_answer p{padding:20px 0 5px 18px;}
+.sweet_cont .sweet_answer .mark{position:absolute;left:0px;top:0px;width:38px;height:37px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -400px -160px;}
+.make_sweet_ask{text-align:center;zoom:1;}
+.make_sweet_ask a{padding:2px 0 2px 18px;background:url(http://i0.sinaimg.cn/cj/realstock/2012/images/icon_left.png) 0 -152px no-repeat;}
+
+.sweet_cont strong{font-weight:normal;}
+.intreview,.intanswers{position:relative;zoom:1;}
+.interviewsline{height:0px;overflow:hidden;margin-bottom:10px;border-bottom:1px solid #e3f1fd;}
+.intreviewpos{position:absolute;left:0px;top:0px;z-index:-1;width:43px;height:20px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -336px -216px;}
+.intaskpos{position:absolute;left:0px;top:0px;z-index:-1;width:38px;height:37px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -336px -160px;}
+.intanswerpos{position:absolute;left:0px;top:0px;z-index:-1;width:38px;height:37px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -400px -160px;}
+.MIB_mbloglist{padding:20px 0 5px 18px; }
+/*.intreview .MIB_mbloglist{padding-top:15px;}*/
+/*行情摘要*/
+.t_hq_summary h1{width:204px;background-position:-616px -264px;}
+
+.block_hq_summary{float:left;width:227px;margin-right:24px;}
+.block_hq_summary .title_brown{border-bottom:none;margin-bottom:8px;}
+.hq_c{}
+.hq_tab_cont{height:319px;border:1px solid #dce5f5;}
+.hq_tab_cont .hq_tab{float:left;width:82px;}
+.hq_tab_cont .hq_tab li{height:22px;line-height:22px;background:url(http://i0.sinaimg.cn/cj/realstock/2012/images/back_r_h.2.png) 0 -144px repeat-x;cursor:pointer;border:1px solid #dce5f5;border-style:none solid solid none;text-align:center;color:#08237a;zoom:1;}
+.hq_tab_cont .hq_tab li.on{background:white;border-right:none;color:#066ee7;cursor:default;}
+.hq_tab_cont .hq_cont{float:right;width:134px;padding:4px;}
+.hq_tab_cont .hq_cont .cont{display:none;}
+.hq_tab_cont .hq_cont .select{height:24px;_overflow:hidden;}
+.hq_tab_cont .hq_cont thead th{background-color:#f3f3f3;padding-top:0;}
+.hq_tab_cont .hq_cont .vselect{margin-bottom:1px;}
+.hq_summary_suggest{position:relative;text-align:center;zoom:1; }
+.hq_summary_suggest .vselect{vertical-align:middle;*display:inline;*margin-right:5px;}
+.hq_summary_suggest .vselect,.hq_summary_suggest .vselect .voptions{width:100px;}
+.hq_summary_suggest .txt{padding:1px 3px;width:217px;height:16px;line-height:16px;border:1px solid #dce5f5;color:#a0a0a0;text-align:left;vertical-align:middle;}
+/*虚拟下拉??通用*/
+.vselect{display:inline-block;_display:inline;position:relative;width:132px;height:21px;line-height:21px;background-color:#f3f3f3;border:1px solid #dce5f5;text-align:left;zoom:1;}
+.vselect span{display:block;padding:0 21px 0 10px;margin-right:2px;background:url(http://i2.sinaimg.cn/cj/realstock/2012/images/icon_right.2.png) right 2px no-repeat;color:#066ee7;cursor:pointer;}
+.vselect .voptions{display:none;position:absolute;left:-1px;top:23px;width:132px;border:1px solid #dce5f5;background-color:White;}
+.vselect .voptions a,.vselect .voptions a:visited{display:block;background-color:White;color:#08237a;padding-left:15px;line-height:25px;_zoom:1;}
+.vselect .voptions a:hover,.vselect .voptions a:active,.vselect .voptions a:focus{color:#066ee7;background-color:#f3f3f3;text-decoration:none;}
+.vselect .voptions .on,.vselect .voptions .on:visited{background-color:#e3e3e3;}
+.vselect .voptions .on:hover,.vselect .voptions .on:active,.vselect .voptions .on:focus{background-color:#f3f3f3;}
+/*环球市场行情*/
+.t_globalhq h1{width:273px;background-position:-184px -312px;}
+.ghq_cont{padding:10px 0;border:1px solid #dce5f5;height:182px;color:#08237a;}
+
+.footer{margin-top:20px;text-align:center;line-height:24px;}
+.footer .mianze{line-height:13px;color:#aaa;}
+
+/*树状导航*/
+.louver{background-color:#f9fafc;}
+.louver .top_oper{height:31px;border-bottom:2px solid #08237a;width:100%;overflow:hidden;}
+.louver .top_oper a{float:left;width:78px;margin-right:14px;text-indent:3px;background:url(http://i2.sinaimg.cn/cj/realstock/2012/images/icon_right.2.png) no-repeat; line-height:31px;font-size:14px;font-family:微软雅黑,黑体;}
+.louver .top_oper a:hover,.louver .top_oper a:active,.louver .top_oper a:focus{text-decoration:none;}
+#louverAllUnfold{background-position:right -17px;}
+#louverAllFold{background-position:right -39px;}
+.louver_sec{}
+.louver_sec .sec_title{padding-top:10px;line-height:28px;text-align:center;font-size:16px;font-family:微软雅黑,黑体;color:#012593;}
+.louver_sec .sec_cont{height:48px;line-height:24px;overflow:hidden;padding:0 8px;}
+.louver_sec .row_num_1{height:24px;}
+.louver_sec .row_num_3{height:72px;}
+.louver_sec .row_num_4{height:96px;}
+.louver_sec .row_num_5{height:120px;}
+.louver_sec .sec_cont ul{margin:0 -8px;}
+.louver_sec .sec_cont li{float:left;width:49%;text-indent:16px;}
+.louver_sec .sec_cont li a{margin:0;}
+.louver_sec .sec_cont a{ white-space:nowrap;margin:0 8px;}
+.louver_sec .sec_btn{height:12px;margin-top:10px;border-bottom:1px solid #8da0ca;text-align:center;overflow:hidden;}
+.louver_sec .sec_btn a{display:inline-block;width:109px;height:12px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -648px -72px;overflow:hidden;cursor:pointer;}
+.louver_sec .on a{background-position:-648px -87px;}
+/*公司概况*/
+.com_overview{padding:15px 5px 0px 0;line-height:24px; word-wrap:break-word;}
+.com_overview b{font-weight:normal;color:#055dbf;margin-right:5px;white-space:nowrap;}
+/*财务摘要*/
+#finance_overview{position:relative;width:185px;margin-right:-999px;}
+.finance_overview{border-top:2px solid #08237A;background-color:#fff;overflow:hidden;}
+.finance_overview .tabs{margin-right:-999px;height:28px;font-size:12px;font-weight:normal;font-family:宋体;border-bottom:1px solid #DCE5F5}
+.finance_overview .cont{margin-right:-999px;}
+.finance_overview .on{color:#082478;}
+.finance_overview table{width:auto;}
+.finance_overview tbody th{width:119px;}
+.finance_overview tbody td{width:60px;border-right:1px solid #DCE5F5;}
+.finance_overview .tab{background-color:transparent;border:none;border-right:1px solid #DCE5F5;cursor:default;width:60px;padding-right:5px;text-align:right;color:#055dbf;}
+.finance_overview .first{display:inline;margin-left:55px;border-right:none;}
+.finance_overview .open{float:left;width:60px;height:21px;margin-top:3px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -616px 0px;}
+.finance_overview .open:hover,.finance_overview .open:hover:active{background-position:-616px -21px;}
+#finance_overview .close{display:none;position:absolute;top:-13px;right:-13px;width:27px;height:28px;cursor:pointer;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -688px 0px;}
+.finance_overview_on .first{margin-left:120px;border-right:1px solid #DCE5F5;}
+.finance_overview_on .open{display:none;}
+.finance_overview_on .cont{border-bottom:1px solid #DCE5F5;}
+.finance_overview_on{border-bottom:3px solid #e0e7eb;border-right:3px solid #e0e7eb;margin-bottom:-4px;}
+.L_data_table thead th{padding-left:5px;text-align:left;}
+.L_data_table thead td{padding-right:5px;text-align:right;}
+.L_data_table tbody th{color:#08237a;padding-left:1px;}
+.L_data_table tbody td{color:#055dbf;padding-right:5px;}
+/*分红送配*/
+.fhsp tbody th{width:60px;}
+/*流通股东*/
+#ltgd{position:relative;width:185px;margin-right:-999px;}
+.ltgd{position:relative;border-bottom:1px solid #dce5f4;border-top:2px solid #08237A;background-color:#fff;overflow:hidden;}
+.ltgd .tabs{font-size:12px;font-weight:normal;font-family:宋体;border-bottom:1px solid #DCE5F5;height:28px;}
+.ltgd .tab{display:none;width:61px;border-top:none;color:#055dbf;background-color:White;}
+.ltgd .first{display:block;border-right:none;}
+.ltgd .open{float:left;margin-left:59px;width:60px;height:21px;margin-top:3px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -616px 0px;}
+.ltgd .open:hover,.finance_overview .open:hover:active{background-position:-616px -21px;}
+.ltgd .cont{float:left;width:185px;border-right:1px solid #DCE5F5;margin-right:-1px;}
+.ltgd .on{color:#082478;}
+.ltgd .up{color:Red;}
+.ltgd .down{color:Green;}
+.ltgd .flat{color:#7f7f7f;}
+.ltgd .img{position:absolute;left:186px;top:0px;text-align:center;}
+.ltgd .img h3{font-size:16px;font-family:微软雅黑,黑体;color:#012793;margin-top:30px;}
+#ltgd .close{display:none;position:absolute;top:-13px;right:-13px;width:27px;height:28px;cursor:pointer;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -688px 0px;}
+.ltgd_on{border-bottom:3px solid #e0e7eb;border-right:3px solid #e0e7eb;margin-bottom:-3px;}
+.ltgd_on .first{border-right:1px solid #CCE2F0;}
+.ltgd_on .tabs{border-bottom:none;height:29px;}
+.ltgd_on .tab{display:block; background-color:#F7FAFF;}
+.ltgd_on .on{background-color:White;}
+.ltgd_on .open{display:none;}
+/*资金流向块*/
+.t_flow h1{width:204px;background-position:-184px -368px;}
+.block_t .links{float:right;line-height:36px;padding-right:10px;}
+.block_t .links a{margin-left:20px;}
+.t_links{float:right;font-size:12px;}
+.t_flow .links{float:right;font-size:12px;}
+.t_flow i{float:left;width:38px;height:22px;margin:3px 0 0 2px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/back.8.png) -334px -375px;}
+.c_flow{margin:0 -15px;}
+.block_flow_L{float:left;width:383px;border-right:1px solid #dce5f4;overflow:hidden;}
+.block_flow_L .flow_L_map{height:225px;}
+.flow_table{}
+.block_flow_L table{width:373px;border:1px solid #dce5f4;}
+.block_flow_R table{width:360px;border:1px solid #dce5f4;}
+.flow_table table th,.flow_table table td{border:1px solid #dce5f4;}
+.flow_table thead{background-color:#dce5f4;color:#052379;font-size:16px;line-height:30px;font-family:微软雅黑,黑体;text-align:center;}
+.flow_table tbody{line-height:24px;}
+.flow_table tbody th{text-align:center;color:#052379;}
+.flow_table tbody td{text-align:right;padding-right:10px;color:#005cbf;}
+.block_flow_R{float:right;width:360px;}
+.flow_R_map{position:relative;height:205px;}
+.flow_R_map .flow_R_map_balance{position:absolute;right:0px;top:99px;width:291px;height:3px;background-color:#000000;overflow:hidden;}
+.flow_R_map .flow_R_map_bar_0,.flow_R_map .flow_R_map_bar_1,.flow_R_map .flow_R_map_bar_2,.flow_R_map .flow_R_map_bar_3{position:absolute;width:27px;height:0px;background:url(http://i1.sinaimg.cn/cj/realstock/2012/images/back_r_v.png) repeat-y;border:1px solid #000;}
+.flow_R_map .flow_R_map_bar_0{right:225px;}
+.flow_R_map .flow_R_map_bar_1{right:170px;}
+.flow_R_map .flow_R_map_bar_2{right:105px;}
+.flow_R_map .flow_R_map_bar_3{right:45px;}
+.flow_R_map .up{bottom:105px;background-position:0 0;}
+.flow_R_map .up span{position:absolute;top:-22px;left:-10px;width:50px;text-align:center;font-size:16px;line-height:16px;font-family:微软雅黑;color:#000;}
+.flow_R_map .down{top:101px;background-position:-32px 0;}
+.flow_R_map .down span{position:absolute;bottom:-20px;left:-10px;width:50px;text-align:center;font-size:16px;line-height:16px;font-family:微软雅黑;color:#000;}
+.flow_R_map .flat{bottom:105px;background-position:0 0;}
+.flow_R_map .flat span{position:absolute;top:-22px;left:-10px;width:50px;text-align:center;font-size:16px;line-height:16px;font-family:微软雅黑;color:#000;}
+/*机构点评*/
+.block_jgdp{background-color:#f7f9fe;padding:10px 25px;border:1px solid #dce5f4;}
+.jgdp_t{line-height:28px;border-bottom:2px solid #dce5f4;font-size:20px;}
+.jgdp_t h2{_position:relative;float:left;font-size:20px;font-family:微软雅黑,黑体;color:#052379;border-bottom:2px solid #08237a;margin-bottom:-2px;}
+.jgdp_t em{float:left;display:inline;_position:relative;width:7px;height:24px;margin-left:-19px;margin-top:2px;background:url(http://i0.sinaimg.cn/cj/realstock/2012/images/icon_left.png) left -184px;}
+.jgdp_c{line-height:24px;padding-top:10px;border-top:1px solid #dce5f4;}
+.jgdp_maps{margin:0 -25px;padding:10px 0 5px;}
+.jgdp_map{float:left;width:257px;}
+.jgdp_map img{margin-bottom:3px;}
+.jgdp_map p{padding:0 25px;line-height:20px;}
+.jgdp_map .jgdp_zhpc{text-align:left;}
+.jgdp_map .jgdp_word{text-align:center;}
+
+.block_com_research{background-color:transparent;}
+.com_research{margin:0 -25px;padding-top:10px;}
+.com_r{position:relative;float:left;width:386px;}
+.com_r .corner{position:absolute;width:7px;height:7px;border:1px solid #dce5f4;overflow:hidden;zoom:1;line-height:1px;}
+.com_r_0,.com_r_1{border-bottom:1px solid #dce5f4;zoom:1;}
+.com_r_0{border-right:1px solid #dce5f4;}
+.com_r_0 .corner{right:0px;bottom:-1px;border-top:none;border-left:none;}
+.com_r_1 .corner{left:-1px;bottom:-1px;border-top:none;border-right:none;}
+.com_r_2,.com_r_3{height:208px;}
+.com_r_2{border-right:1px solid #dce5f4;overflow:hidden;}
+.com_r_3{overflow:hidden;}
+.com_r_2 .corner{right:0px;top:0px;border-bottom:none;border-left:none;}
+.com_r_3 .corner{left:-1px;top:0px;border-bottom:none;border-right:none;}
+.com_r .title{padding-top:8px;margin:0 10px;height:26px;line-height:26px;background:url(http://i1.sinaimg.cn/cj/realstock/2012/images/dotted.png) left bottom repeat-x;zoom:1;}
+.com_r .title h3{float:left;font-size:14px;color:#0c217a;}
+.com_r .vselect{float:right;width:145px;/*margin-right:10px;*/background-color:transparent;}
+.com_r .vselect .voptions{width:145px;}
+.com_r .cont{width:360px;padding:0 13px;height:240px;overflow:hidden;}
+.com_r .cont object{margin-left:-15px;}
+.com_r .cont p{color:#0C217A;padding:5px 0;}
+.com_r .com_r_rank{}
+.com_r .rank_summary{padding:4px 10px 0px 10px;}
+.com_r .com_r_rank .tabs{padding-right:10px;border-bottom:1px solid #dce5f4;font-size:12px;font-family:宋体; height:29px;overflow:visible;}
+.com_r .com_r_rank .tab{border-bottom:none;padding:0 10px;}
+.com_r .com_r_rank .on{position:relative;border-top:1px solid #dce5f4;height:29px;margin-bottom:-1px;}
+.pj_bar{position:relative;width:288px;margin:0 auto;margin-top:20px;}
+.pj_pointer{position:absolute;top:-10px;width:15px;height:27px;background:url(http://www.sinaimg.cn/cj/realstock/2012/images/pj_pointer.png) 0px 0px;_background:none;FILTER: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://www.sinaimg.cn/cj/realstock/2012/images/pj_pointer.png');}
+.com_r_3 p{text-align:center;}
+.fk_dc{position:fixed;right:50%;top:260px;_position:absolute;_top:expression((_top=document.documentElement.scrollTop) + 260 + 'px');margin-right:-500px;width:25px;height:182px;background:url(http://i2.sinaimg.cn/cj/realstock/2012/images/yjfk.png);}
+.fk_dc .fk{display:block;height:90px;}
+.fk_dc .fk:hover,.fk_dc .fk:active,.fk_dc .fk:focus{background:url(http://i2.sinaimg.cn/cj/realstock/2012/images/yjfk.png) -25px 0px;}
+.fk_dc .dc{display:block;height:90px;margin-top:2px;}
+.fk_dc .dc:hover,.fk_dc .dc:active,.fk_dc .dc:focus{background:url(http://i2.sinaimg.cn/cj/realstock/2012/images/yjfk.png) -25px -92px;}

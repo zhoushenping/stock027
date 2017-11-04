@@ -4,9 +4,6 @@ require_once(ROOT_PATH . 'include' . DS . 'config' . DS . 'global.php');
 
 $d = date('Y-m-d');
 
-RealTime::getAll();
-die;
-
 if (TradeDate::isTradeDate($d) && Time::isTradeTime()) {
     $t = microtime(true);
     Log2::save_run_log($t, 'real');

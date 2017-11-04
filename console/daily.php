@@ -21,6 +21,7 @@ function truncate()
 }
 
 StockList::update();
+eastStockInfo::getAll();
 TradeDate::renewTradeDatesFromApi();
 truncate();
 eastDailySummary::getAll();//下载各股的当日统计

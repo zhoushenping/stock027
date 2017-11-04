@@ -12,13 +12,18 @@ include_once(dirname(__FILE__) . '/define.php');
 require_once(ROOT_PATH . 'include' . DS . 'config' . DS . 'global.php');
 
 $info = [
-//    'sz002008' => ['have' => 600, 'chengben' => 47.892, 'target' => 48.20],//大族激光
-//    'sh600518' => ['have' => 2300, 'chengben' => 21.222, 'target' => 21.31],//康美药业
-//    'sh600198' => ['have' => 7500, 'chengben' => 13.912, 'target' => 14.20],//大唐电信
-//    'sz002311' => ['have' => 1700, 'chengben' => 19.513, 'target' => 21.20],//海大集团
-//    'sz002354' => ['have' => 1300, 'chengben' => 20.615, 'target' => 21.05],//天神娱乐
-    'sz002511' => ['have' => 1700, 'chengben' => 14.63, 'target' => 14.94],//中顺洁柔
-    'sh600660' => ['have' => 1900, 'chengben' => 26.97, 'target' => 27.45],//福耀玻璃
+    'sz002311' => ['have' => 2500, 'chengben' => 19.36, 'target' => 21.20],//海大集团
+    'sz000666' => ['have' => 500, 'chengben' => 20.34, 'target' => 14.94],//经纬纺机
+    'sz002354' => ['have' => 1, 'chengben' => 20.615, 'target' => 21.05],//天神娱乐
+    'sh600518' => ['have' => 700, 'chengben' => 20.908, 'target' => 21.31],//康美药业
+    'sz002223' => ['have' => 1, 'chengben' => 14.63, 'target' => 14.94],//鱼跃医疗
+    'sh600660' => ['have' => 1, 'chengben' => 26.97, 'target' => 27.45],//福耀玻璃
+    //    'sz002511' => ['have' => 1, 'chengben' => 14.63, 'target' => 14.94],//中顺洁柔
+    //    'sz002008' => ['have' => 1, 'chengben' => 47.892, 'target' => 48.20],//大族激光
+    //    'sh600198' => ['have' => 7500, 'chengben' => 13.912, 'target' => 14.20],//大唐电信
+    //    'sz002511' => ['have' => 1700, 'chengben' => 14.63, 'target' => 14.94],//中顺洁柔
+    //    'sh600031' => ['have' => 1700, 'chengben' => 7.943, 'target' => 14.94],//三一重工
+    //    'sh600398' => ['have' => 1400, 'chengben' => 9.624, 'target' => 27.45],//海澜之家
 ];
 
 $columns_show = [
@@ -34,7 +39,7 @@ $columns_show = [
     //    'b1p',
     //    's1c',
     //    's1p',
-    //    'symbol',
+    'symbol',
 ];
 
 foreach ($info as $symbol => $null) {
@@ -83,7 +88,7 @@ $salary = [];
         <th>涨幅</th>
         <!--        <th>持仓量</th>-->
         <!--        <th>持仓成本</th>-->
-        <th>今日盈亏</th>
+        <!--        <th>今日盈亏</th>-->
         <th>持仓盈亏率</th>
         <!--        <th>目标价</th>-->
         <th>目标差</th>
@@ -106,12 +111,12 @@ $salary = [];
 
         $salary[$item['symbol']] =
             number_format($info[$item['symbol']]['have'] * ($item['trade'] - $item['settlement']), 2, '.', '');
-        $html .= "<td>{$salary[$item['symbol']]}</td>";
+//        $html .= "<td>{$salary[$item['symbol']]}</td>";
 
         $bonusRate = Number::getDiffRate($item['trade'], $info[$item['symbol']]['chengben']);
         $html .= "<td>{$bonusRate}%</td>";
 //        $html .= "<td>{$info[$item['symbol']]['target']}</td>";
-        $html .= "<td>" . ($item['trade'] - $info[$item['symbol']]['target']) . "</td>";
+        $html .= "<td>" . Number::getFloat($item['trade'] - $info[$item['symbol']]['target'], 2) . "</td>";
 
         echo "<tr>$html</tr>";
         Log2::save_run_log("{$item['name']},现价={$item['trade']},涨幅=$amp,今日盈利={$salary[$item['symbol']]}", 'aaa');
@@ -128,7 +133,7 @@ $salary = [];
     td, th {
         border: 1px solid transparent;
         padding: 3px 5px;
-        color: white;
+        color: black;
         font-size: 12px;
     }
 
@@ -137,7 +142,7 @@ $salary = [];
     }
 
     table {
-        opacity: 0.2;
+        opacity: 0.6;
         position: fixed;
     }
 </style>
