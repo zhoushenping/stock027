@@ -28,7 +28,7 @@ class eastPosition
             $ret = $rs['Data'];
         }
 
-        return $ret;
+        return $ret[0];
     }
 
     private static function makeGetListParams()
@@ -44,5 +44,13 @@ class eastPosition
         ];
 
         return $params;
+    }
+
+    //查询可用资金
+    static function getKyzj()
+    {
+        $positionInfo = self::getList();
+
+        return $positionInfo['Kyzj'];//可用资金
     }
 }

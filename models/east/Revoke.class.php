@@ -9,6 +9,7 @@
 class eastRevoke
 {
 
+    const table = 'east_revoke_list';
     static $columns_name = [
         'Wtrq' => '委托日期',
         'Wtbh' => '委托编号',
@@ -29,7 +30,25 @@ class eastRevoke
     {
         $params = self::makeGetListParams();
 
-        return self::makeGetListRequest($params);
+        $data = self::makeGetListRequest($params);
+
+        if (!empty($data)) {
+            $arr_columns = array_keys($data[0]);
+
+            DBHandle::delete(self::table);
+            DBHandle::insertMultiIgnore(self::table, $arr_columns, $data);
+
+            self::updateRecordInfo();//用自定义的方法更新记录中的部分字段
+            return self::readRecord();
+        }
+        else {
+            return [];
+        }
+    }
+
+    static function readRecord()
+    {
+        return DBHandle::select(self::table, "1 ORDER BY `price_diff_rate`");
     }
 
     private function makeGetListRequest($params)
@@ -57,6 +76,15 @@ class eastRevoke
         ];
 
         return $params;
+    }
+
+    static function updateRecordInfo()
+    {
+        foreach (self::readRecord() as $item) {
+            $priceNow = eastSalary::getPrice($item['symbol'], time() + 86400);
+            $diffRate = Number::getDiffRate($priceNow, $item['Wtjg']);
+            DBHandle::update(self::table, "`price_diff_rate`='$diffRate'", "`id`={$item['id']}");
+        }
     }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////

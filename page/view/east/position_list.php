@@ -16,14 +16,14 @@
                 <td class="tb-tr-right pad-box">
                     <span>总资产</span>
                     <span class="padl10">
-                        <span class="red"><?= $positionInfo[0]['Zzc'] ?></span>
+                        <span class="red"><?= $positionInfo['Zzc'] ?></span>
                     </span>
                 </td>
                 <td class="pad-box">
                     <span>总市值</span>
                     <span class="padl10">
                         <span class="">
-                            <span class="red"><?= $positionInfo[0]['Zxsz'] ?></span>
+                            <span class="red"><?= $positionInfo['Zxsz'] ?></span>
                         </span>
                     </span>
                 </td>
@@ -33,19 +33,19 @@
                 <td class="tb-tr-right lh200 pad-box">
                     <span>可用资金</span>
                     <span class="padl10">
-                        <span class=""><?= $positionInfo[0]['Kyzj'] ?></span>
+                        <span class=""><?= $positionInfo['Kyzj'] ?></span>
                     </span>
                 </td>
                 <td class="tb-tr-right pad-box">
                     <span>持仓盈亏</span>
                     <span class="padl10">
-                        <span class="red"><?= $positionInfo[0]['Ljyk'] ?></span>
+                        <span class="red"><?= $positionInfo['Ljyk'] ?></span>
                     </span>
                 </td>
                 <td class="pad-box">
                     <span>资金余额</span>
                     <span class="padl10">
-                        <span class=""><?= $positionInfo[0]['Zjye'] ?></span>
+                        <span class=""><?= $positionInfo['Zjye'] ?></span>
                     </span>
                 </td>
             </tr>
@@ -53,18 +53,18 @@
                 <td class="tb-tr-right lh200 pad-box">
                     <span>可取资金</span>
                     <span class="padl10">
-                        <span class=""><?= $positionInfo[0]['Kqzj'] ?></span>
+                        <span class=""><?= $positionInfo['Kqzj'] ?></span>
                     </span>
                 </td>
                 <td class="tb-tr-right pad-box">
                     <span>当日参考盈亏</span>
                     <span class="padl10">
-                        <span class="red"><?= $positionInfo[0]['Drckyk'] ?></span>
+                        <span class="red"><?= $positionInfo['Drckyk'] ?></span>
                     </span>
                 </td>
                 <td class="pad-box">
                     <span>冻结资金</span>
-                    <span class="padl10"><?= $positionInfo[0]['Djzj'] ?></span>
+                    <span class="padl10"><?= $positionInfo['Djzj'] ?></span>
                 </td>
             </tr>
             </tbody>
@@ -89,7 +89,7 @@
             </thead>
             <tbody id="tabBody">
             <?
-            foreach ($positionInfo[0]['F303S'] as $item) {
+            foreach ($positionInfo['F303S'] as $item) {
                 $sum['Zqsl'] += $item['Zqsl'];
                 $sum['Kysl'] += $item['Kysl'];
                 $sum['Ljyk'] += $item['Ljyk'];

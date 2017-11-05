@@ -46,4 +46,16 @@ class eastTrade
         return $params;
     }
 
+    //$money能够以$price买多少股
+    static function getBuyAmount($money, $price)
+    {
+        return 100 * floor($money / $price / 100);
+    }
+
+    //需要以$price卖多少股才能得到$money
+    static function getSellAmount($money, $price)
+    {
+        return 100 * ceil($money / $price / 100);
+    }
+
 }

@@ -145,4 +145,13 @@ class RealTime
 
         return (float)($rs[0]['trade']);
     }
+
+    static function getCurrentSellPrice($symbol, $t = 0)
+    {
+        if ($t == 0) $t = time();
+        $where = "`symbol`='$symbol' AND `timestamp`<=$t AND trade>0 ORDER BY `timestamp` DESC LIMIT 0,1";
+        $rs    = DBHandle::select(self::table, $where);
+
+        return (float)($rs[0]['current_sell']);
+    }
 }

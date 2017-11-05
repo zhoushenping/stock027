@@ -102,6 +102,13 @@ class DBHandle
         return $db->execute_sql($sql);
     }
 
+    static function delete($table, $where = 1)
+    {
+        $sql = "DELETE FROM `$table` WHERE $where";
+
+        self::execute($sql);
+    }
+
     static function insertMultiIgnore($table, $arr_columns, $arr_data)
     {
         $str_columns = implode("`,`", $arr_columns);
