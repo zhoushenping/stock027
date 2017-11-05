@@ -5,8 +5,8 @@ class eastHistory
 
     const  table = 'handle_history_east';
     static $beginDate = [
-        'zhoushenping'  => '2017-09-01',
-        'zhangfeixiong' => '2007-09-01',
+        '1001' => '2007-09-01',
+        '1002' => '2017-09-01',
     ];
 
     static $arr_columns = [

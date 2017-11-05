@@ -25,11 +25,11 @@ class eastLogin
         return $ret;
     }
 
-    static function saveLoginInfo()
+    static function saveLoginInfo($str_cookie)
     {
-        $cookie_r           = cookie::parseCookieStr($_REQUEST['cookie_r']);
+        $cookie_r           = cookie::parseCookieStr($str_cookie);
         $data               = $cookie_r;
-        $data['token']      = $_REQUEST['token_r'];
+        $data['token']      = '';
         $data['zhanmo_uid'] = self::getZhanmoUid($cookie_r['Uid']);
 
         DBHandle::insertMulti(self::table, array_keys($data), [$data]);
@@ -50,6 +50,27 @@ class eastLogin
         }
 
         return 0;
+    }
+
+    //////////////////以下为登录curl相关内容
+
+    static $loginUrl = 'https://jy.xzsec.com/Login/Authentication?validatekey=';
+
+    static $loginHeaders = [
+        'Referer: https://jy.xzsec.com/Login?el=1&clear=&returl=%2fSearch%2fHisDeal',
+        'X-Requested-With: XMLHttpRequest',
+        'Accept: application/json, text/javascript, */*; q=0.01',
+        'Origin: https://jy.xzsec.com',
+        'Host: jy.xzsec.com',
+    ];
+
+    static function login($data)
+    {
+        return cookie::curl(
+            self::$loginUrl,
+            $data,
+            self::$loginHeaders
+        );
     }
 
 }
