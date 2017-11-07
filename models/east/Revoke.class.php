@@ -31,9 +31,12 @@ class eastRevoke
         $params = self::makeGetListParams();
 
         $data = self::makeGetListRequest($params);
-
         if (!empty($data)) {
             $arr_columns = array_keys($data[0]);
+
+            foreach ($data as $k => $item) {
+                $data[$k]['Zqdm'] = StockList::getStandardSymbol($data[$k]['Zqdm']);
+            }
 
             DBHandle::delete(self::table);
             DBHandle::insertMultiIgnore(self::table, $arr_columns, $data);
@@ -81,7 +84,7 @@ class eastRevoke
     static function updateRecordInfo()
     {
         foreach (self::readRecord() as $item) {
-            $priceNow = eastSalary::getPrice($item['symbol'], time() + 86400);
+            $priceNow = eastSalary::getPrice($item['Zqdm'], time() + 86400);
             $diffRate = Number::getDiffRate($priceNow, $item['Wtjg']);
             DBHandle::update(self::table, "`price_diff_rate`='$diffRate'", "`id`={$item['id']}");
         }

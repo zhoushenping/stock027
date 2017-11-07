@@ -14,7 +14,7 @@ class eastAutoTrade
     //对于指定股票 如果到达指定的低位  自动买入
     static function buyLow()
     {
-        foreach (DBHandle::select(self::table) as $item) {
+        foreach (self::readRecord() as $item) {
             if ($item['enable'] == 0) continue;
 
             $symbol      = $item['symbol'];
@@ -22,12 +22,17 @@ class eastAutoTrade
             $targetPrice = $item['targetPrice'];//目标价格
             $priceNow    = RealTime::getCurrentSellPrice($symbol, time() + 86400);//加100是为了忽略服务器之间的时间不准的差距
 
-            if ($priceNow <= $targetPrice) {
+            if ($priceNow > 0 && $priceNow <= $targetPrice) {
                 $money  = self::releaseMoney($targetMoney);//自动释放购买资金
                 $amount = eastTrade::getBuyAmount($money, $priceNow);
                 eastTrade::buy($symbol, $priceNow, $amount);
             }
         }
+    }
+
+    static function readRecord()
+    {
+        return DBHandle::select(self::table);
     }
 
     //取消买入委托以释放资金 使得可用余额尽可能达到$targetMoney
