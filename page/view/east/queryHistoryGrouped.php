@@ -1,3 +1,6 @@
+<title>history</title>
+<script src="/static/common/jquery-1.7.2.min.js"></script>
+<script src="/static/common/tools.php"></script>
 <?
 $plus  = [];
 $Zjfss = [];
@@ -72,6 +75,14 @@ foreach ($symbols as $symbol) {
                 盈亏=<?= $plus[$symbol] ?>
             </td>
         </tr>
+        <tr>
+            <td colspan="<?= count($columns) ?>">
+                优先级:
+                <input type="text" maxlength="5" class="priority_r" value="<?= (int)$priority[$symbol] ?>"/>
+                <button type="button" onclick="setPriority('<?= $symbol ?>',$(this).siblings('.priority_r').val());">修订
+                </button>
+            </td>
+        </tr>
     </table>
     <?
 }
@@ -96,3 +107,12 @@ foreach ($symbols as $symbol) {
         color: deeppink;
     }
 </style>
+<script>
+    function setPriority(symb, val) {
+        var url = "/?a=eastAjax&m=priority&symbol=" + symb + "&val=" + val;
+        var call = function (res) {
+
+        };
+        ajaxRequest2(url, call);
+    }
+</script>

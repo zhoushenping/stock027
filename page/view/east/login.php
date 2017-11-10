@@ -12,7 +12,7 @@ $rand = Random::getRandom();
     <input type="hidden" name="userId" value="541200145700"/>
     <input type="hidden" name="password" value="601428"/>
     <input type="hidden" name="randNumber" value="<?= $rand ?>"/>
-    <input type="hidden" name="duration" value="86400"/>
+    <input type="hidden" name="duration" value="1800"/>
     <input type="hidden" name="authCode" value=""/>
     <input type="hidden" name="type" value="Z"/>
 

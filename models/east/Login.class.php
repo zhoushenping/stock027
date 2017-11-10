@@ -1,4 +1,4 @@
-<?
+<?php
 
 class eastLogin
 {
@@ -31,6 +31,8 @@ class eastLogin
         $data               = $cookie_r;
         $data['token']      = '';
         $data['zhanmo_uid'] = self::getZhanmoUid($cookie_r['Uid']);
+        $data['time']       = date('Y-m-d H:i:s');
+        $data['ip']         = Browser::get_client_ip();
 
         DBHandle::insertMulti(self::table, array_keys($data), [$data]);
     }
@@ -62,6 +64,7 @@ class eastLogin
         'Accept: application/json, text/javascript, */*; q=0.01',
         'Origin: https://jy.xzsec.com',
         'Host: jy.xzsec.com',
+        'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.89 Safari/537.36',
     ];
 
     static function login($data)

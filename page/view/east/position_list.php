@@ -1,3 +1,4 @@
+<title>position</title>
 <link rel="stylesheet" href="/static/page/east/position_list.css">
 <div class="v_con hktrade pagetradeb Financial-position">
     <div class="maincenter-box-tip">

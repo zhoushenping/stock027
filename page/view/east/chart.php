@@ -1,4 +1,4 @@
-<title><?= $type == 'now' ? '现持股' : '曾持股' ?></title>
+<title><?= $type == 'now' ? 'now' : 'buyed' ?></title>
 <link rel="stylesheet" href="/static/page/east/chart.css">
 <script src="/static/common/jquery-1.7.2.min.js"></script>
 <body>
@@ -10,18 +10,9 @@
     </div>
 </div>
 <?
-
-$symbols_shown = [];
-foreach (eastHistory::getRecords() as $item) {
-    if ($type == 'now' && $item['Gfye'] == 0) {
-        $symbols_shown[] = $item['Zqdm'];
-    }
-
-    if (in_array($item['Zqdm'], $symbols_shown)) continue;
-    $symbols_shown[] = $item['Zqdm'];
-    $symbol          = $item['Zqdm'];
-    $names[$symbol]  = $item['Zqmc'];
-
+foreach ($records_show as $item) {
+    $symbol         = $item['Zqdm'];
+    $names[$symbol] = $item['Zqmc'];
     ?>
     <div class="chart_container" id="chart_container_<?= $symbol ?>">
         <div class="chart_mask"></div>

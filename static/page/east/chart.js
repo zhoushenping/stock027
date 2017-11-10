@@ -18,7 +18,7 @@ $(function () {
 function freshChart() {
     for (var symb in names) {
         $('#chart_container_' + symb + ' iframe').attr('src', '');
-        $('#chart_container_' + symb + ' span').text(names[symb]);
+        $('#chart_container_' + symb + ' span').text(names[symb] + '    ' + symb);
         var url = '/?a=sina&m=clear_chart&type=simple&symbol=' + symb;
         setUrl(symb, url);
     }

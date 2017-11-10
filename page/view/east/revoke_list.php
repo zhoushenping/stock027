@@ -1,7 +1,7 @@
 <?
 //eastRevoke::getList();
 ?>
-
+<title>revoke</title>
 <div class="v_con">
     <div class="operate">
         <label class="checkbox-inline">
