@@ -119,5 +119,15 @@ class eastStockInfo
 
         return $rs[0];
     }
+
+    static function readAllRecord()
+    {
+        $ret = [];
+        foreach (DBHandle::select(self::table) as $item) {
+            $ret[$item['symbol']] = $item;
+        }
+
+        return $ret;
+    }
 }
 

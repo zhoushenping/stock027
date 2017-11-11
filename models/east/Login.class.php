@@ -25,7 +25,7 @@ class eastLogin
         return $ret;
     }
 
-    static function saveLoginInfo($str_cookie)
+    static function saveLoginInfo($str_cookie, $type = 'user')
     {
         $cookie_r           = cookie::parseCookieStr($str_cookie);
         $data               = $cookie_r;
@@ -33,6 +33,7 @@ class eastLogin
         $data['zhanmo_uid'] = self::getZhanmoUid($cookie_r['Uid']);
         $data['time']       = date('Y-m-d H:i:s');
         $data['ip']         = Browser::get_client_ip();
+        $data['type']       = $type;
 
         DBHandle::insertMulti(self::table, array_keys($data), [$data]);
     }

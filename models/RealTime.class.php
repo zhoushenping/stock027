@@ -72,6 +72,7 @@ class RealTime
         }
         else {
             DBHandle::insertMultiIgnore(self::table, $arr_columns, $arr_data);
+            eastLast::renewRecords($arr_columns, $arr_data);
 
             return [];
         }
