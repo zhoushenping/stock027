@@ -4,7 +4,7 @@
 }
 
 #main_mask {
-    background: url("/static/page/east/mask.png") repeat;
+    background: url("./mask.png") repeat;
     position: fixed;
     width: 100%;
     height: 100%;

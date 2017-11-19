@@ -1,5 +1,18 @@
 <?
-$records = eastBigSale::findLow();
+$threshold = [];
+if ($_REQUEST['marketValue']) {
+    $threshold = [
+        'syl'         => (float)($_REQUEST['syl']),
+        'amp'         => (float)($_REQUEST['amp']),
+        'marketValue' => (float)($_REQUEST['marketValue']),
+    ];
+}
+
+$records = eastBigSale::findLow($threshold);
+
+if (empty($threshold)) {
+    $threshold = eastBigSale::$sampleThreshold;
+}
 
 function cmp($a, $b)
 {
@@ -14,3 +27,7 @@ function cmp($a, $b)
 }
 
 usort($records, "cmp");
+
+if ($_REQUEST['amp'] > 0) {
+    $records = array_reverse($records);
+}

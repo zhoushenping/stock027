@@ -1,4 +1,4 @@
-<title><?= $type == 'now' ? 'now' : 'buyed' ?></title>
+<title>positionChart</title>
 <link rel="stylesheet" href="./static/page/east/chart.css">
 <script src="./static/common/jquery-1.7.2.min.js"></script>
 <body>
@@ -10,8 +10,8 @@
     </div>
 </div>
 <?
-foreach ($records_show as $item) {
-    $symbol         = $item['Zqdm'];
+foreach ($positionInfo['F303S'] as $item) {
+    $symbol         = StockList::getStandardSymbol($item['Zqdm']);
     $names[$symbol] = $item['Zqmc'];
     ?>
     <div class="chart_container" id="chart_container_<?= $symbol ?>">

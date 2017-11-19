@@ -1,0 +1,2 @@
+<?php
+$positionInfo = eastPosition::getList();

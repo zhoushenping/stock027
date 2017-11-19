@@ -1,6 +1,6 @@
 <title>history</title>
-<script src="/static/common/jquery-1.7.2.min.js"></script>
-<script src="/static/common/tools.php"></script>
+<script src="./static/common/jquery-1.7.2.min.js"></script>
+<script src="./static/common/tools.php"></script>
 <?
 $plus  = [];
 $Zjfss = [];
@@ -109,7 +109,7 @@ foreach ($symbols as $symbol) {
 </style>
 <script>
     function setPriority(symb, val) {
-        var url = "/?a=eastAjax&m=priority&symbol=" + symb + "&val=" + val;
+        var url = "./?a=eastAjax&m=priority&symbol=" + symb + "&val=" + val;
         var call = function (res) {
 
         };

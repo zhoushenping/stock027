@@ -3,10 +3,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="renderer" content="webkit">
-    <link rel="Stylesheet" type="text/css" href="/static/page/sina/base_stock_A_20170306.css"/>
-    <link rel="Stylesheet" type="text/css" href="/static/page/sina/stock.20121213.3.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/page/sina/finance.min_2.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/page/sina/tzyTG.css"/>
+    <link rel="Stylesheet" type="text/css" href="./static/page/sina/base_stock_A_20170306.css"/>
+    <link rel="Stylesheet" type="text/css" href="./static/page/sina/stock.20121213.3.css"/>
+    <link rel="stylesheet" type="text/css" href="./static/page/sina/finance.min_2.css"/>
+    <link rel="stylesheet" type="text/css" href="./static/page/sina/tzyTG.css"/>
     <style type="text/css" id="globalIndexScrollerCss">
         #h5Container .flash {
             overflow: visible;
@@ -24,20 +24,20 @@
         ?>
     </style>
     <script type="text/javascript" src="http://hq.sinajs.cn/list=sz002354"></script>
-    <script type="text/javascript" src="/static/page/sina/swfobject2.2.js"></script>
-    <script src="/static/page/sina/jquery.newest.js"></script>
-    <script type="text/javascript" src="/static/page/sina/utils-hq.js" charset="utf-8"></script>
-    <script src='/static/page/sina/sf_sdk.js'></script>
-    <script type="text/javascript" src="/static/page/sina/stock_A_sz20170608.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./static/page/sina/swfobject2.2.js"></script>
+    <script src="./static/page/sina/jquery.newest.js"></script>
+    <script type="text/javascript" src="./static/page/sina/utils-hq.js" charset="utf-8"></script>
+    <script src='./static/page/sina/sf_sdk.js'></script>
+    <script type="text/javascript" src="./static/page/sina/stock_A_sz20170608.js" charset="utf-8"></script>
     <script type="text/javascript">
         var flag = 1; //判断标志
         var a_code = '<?=$symbol?>'; //流通A股代码
         var b_code = ''; //流通B股代码
         var papercode = '<?=$symbol?>'; //当前页面个股代码
-        var mgjzc = <?=$stockInfo['mgjzc']?>;//最近报告的每股净资产
+        var mgjzc = <?=(float)($stockInfo['mgjzc'])?>;//最近报告的每股净资产
         var stock_state = 1;//个股状态（0:无该记录; 1:上市正常交易; 2:未上市; 3:退市）
         var trans_flag = 1;//是否显示涨跌停价（1:显示 0:不显示）
-        var profit_four = <?=$stockInfo['profit_four']?>;//最近四个季度净利润
+        var profit_four = <?=(float)($stockInfo['profit_four'])?>;//最近四个季度净利润
         var stockType = 'A'; //股票类型  A-A股 B-B股  I-指数
         var stockname = 'stockname'; //股票名称
         var corr_hkstock = ''; //相关港股代码
@@ -47,7 +47,7 @@
         var bkSymbol = 'new_dzxx';
         var wbAppKey = '3202088101';
         var mrq_mgsy = 1.1333333333333;
-        var flashURL = '/static/page/sina/cn.swf';
+        var flashURL = './static/page/sina/cn.swf';
 
         //相关期货
         var RS = {};

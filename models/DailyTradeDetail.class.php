@@ -11,7 +11,8 @@ class DailyTradeDetail
 
     //QQ股票详单下载地址样本 http://stock.gtimg.cn/data/index.php?appn=detail&action=download&c=sz002354&d=20170925
 
-    const table = 'trade_detail';//交易详单
+    const table       = 'trade_detail';//交易详单
+    const downloadDir = '/data/zhanmo/download/zsp/';
 
     //顺序不可随意
     static $arr_columns = [
@@ -56,10 +57,10 @@ class DailyTradeDetail
 
             $content = $ret[$key]['content'];
             $content = iconv("GBK", "UTF-8", $content);
-            if (!is_dir("/data/zhanmo/download/$date")) {
-                mkdir("/data/zhanmo/download/$date", 0777);
+            if (!is_dir(self::downloadDir . "$date")) {
+                mkdir(self::downloadDir . "$date", 0777);
             }
-            error_log($content, 3, "/data/zhanmo/download/$date/{$symbol}.xls");
+            error_log($content, 3, self::downloadDir . "$date/{$symbol}.xls");
         }
     }
 
@@ -83,7 +84,7 @@ class DailyTradeDetail
     //样本 getDailyDetail('sh600000', 20171012);
     static function getDailyDetail($symbol, $date)
     {
-        $content = file_get_contents("/data/zhanmo/download/$date/{$symbol}.xls");
+        $content = file_get_contents(self::downloadDir . "$date/{$symbol}.xls");
         $info    = self::getFormmatedInfo($content);
 
         if (empty($info)) {

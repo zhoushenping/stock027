@@ -15,6 +15,10 @@ for ($i = 0; $i < 3; $i++) {
         die;//已登录  则不再登录
     }
 }
+
+if (Mem::get('autoLogin')) {
+    die;//避免东方财富网有问题时  我方频繁打码登录
+}
 ///////////////开始走登录逻辑
 $rand = Random::getRandom();
 
@@ -46,6 +50,7 @@ if (!is_numeric($code)) {
 }
 else {
     Log2::save_run_log('login ok', 'dama2');
+    Mem::set('autoLogin', 1, 3600 * 3);
 }
 
 $post = [

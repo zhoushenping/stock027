@@ -24,7 +24,8 @@ class eastBigSale
 
         foreach (eastLast::getAllRecords() as $last) {
             if ($last['open'] == 0) continue;
-            if ($last['amp'] > $threshold['amp']) continue;
+            if ($threshold['amp'] <= 0 && $last['amp'] > $threshold['amp']) continue;
+            if ($threshold['amp'] > 0 && $last['amp'] < $threshold['amp']) continue;
             if ($last['marketValue'] < $threshold['marketValue']) continue;
             if ($last['syl'] > $threshold['syl']) continue;
 
@@ -35,5 +36,10 @@ class eastBigSale
         }
 
         return $ret;
+    }
+
+    static function readAll()
+    {
+        return DBHandle::select(eastLast::table);
     }
 }
