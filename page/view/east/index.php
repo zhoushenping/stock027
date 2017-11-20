@@ -9,3 +9,6 @@
 <a target="_blank" href="?a=east&m=chart&type=buyed">曾持股曲线图</a><br/>
 <a target="_blank" href="?a=east&m=revoke_list">撤单</a><br/>
 <a target="_blank" href="?a=east&m=position_list">持仓</a><br/>
+<br/>
+<br/>
+<a target="_blank" href="?a=east&m=amp_fenbu">涨跌幅分布</a><br/>

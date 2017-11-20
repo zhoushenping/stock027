@@ -7,6 +7,17 @@ function getColor($amp)
 }
 
 ?>
+<div style="margin: 0 auto;width:500px;height:100px;">
+    <form action="./?a=east&m=amp_fenbu" method="post">
+        市值:
+        <input type="text" name='marketValue_low' value="<?= $marketValue_low_r ?>">-
+        <input type="text" name='marketValue_high' value="<?= $marketValue_high_r ?>">亿<br/>
+        市盈率:
+        <input type="text" name='syl_low' value="<?= $syl_low_r ?>">-
+        <input type="text" name='syl_high' value="<?= $syl_high_r ?>"><br/>
+        <button>查询</button>
+    </form>
+</div>
 <table>
     <tr>
         <td style="width:100px;">涨跌幅区间</td>
@@ -16,6 +27,8 @@ function getColor($amp)
     </tr>
 
     <?
+    $url_template = "./?a=east&m=bigSale3&marketValue_low=$marketValue_low_r&marketValue_high=$marketValue_high_r";
+    $url_template .= "&syl_low=$syl_low_r&syl_high=$syl_high_r";
     $zhang = 0;
     $die   = 0;
     foreach ($analyse_result as $k => $v) {
@@ -25,9 +38,6 @@ function getColor($amp)
 
         $ampColor = getColor($k);
 
-        $str_per_left  = $k == -10 ? '...' : ($k + 1) . '%';
-        $str_per_right = $k == 9 ? '...' : ($k + 1) . '%';
-
         if ($k < 0) {
             $die += $v;
         }
@@ -35,14 +45,29 @@ function getColor($amp)
             $zhang += $v;
         }
 
+        $amp_low  = $k;
+        $amp_high = $k + 1;
+
+        if ($k == 9) {
+            $amp_high = 100;
+        }
+
+        if ($k == -10) {
+            $amp_low = -100;
+        }
+
         ?>
         <tr class="<?= $divClass ?>">
-            <td style="background-color: <?= $ampColor ?>"><?= $str_per_left ?>-<?= $str_per_right ?></td>
+            <td style="background-color: <?= $ampColor ?>"><?= $k ?>%-<?= $k + 1 ?>%</td>
             <td>
                 <div style="width: <?= $widthPercent ?>%;height: 8px;"></div>
             </td>
             <td><?= $v ?></td>
-            <td><?= $percent ?>%</td>
+            <td>
+                <a target="_blank" href="<?= $url_template ?>&low_amp=<?= $amp_low ?>&high_amp=<?= $amp_high ?>">
+                    <?= $percent ?>%
+                </a>
+            </td>
         </tr>
         <?
     }
@@ -92,5 +117,13 @@ function getColor($amp)
 
     .green div {
         background-color: rgba(0, 80, 0, 0.9);
+    }
+
+    tr {
+        cursor: pointer;
+    }
+
+    tr:hover {
+        background-color: gray;
     }
 </style>
