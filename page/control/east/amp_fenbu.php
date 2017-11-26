@@ -5,7 +5,7 @@ $syl_low_r          = (int)$_REQUEST['syl_low'];
 $syl_high_r         = (int)$_REQUEST['syl_high'];
 
 if ($marketValue_high_r == 0) $marketValue_high_r = 30000;
-if ($syl_high_r == 0) $syl_high_r = 50;
+if ($syl_high_r == 0) $syl_high_r = 10000;
 
 $analyse_result = [];
 function getArea($amp)

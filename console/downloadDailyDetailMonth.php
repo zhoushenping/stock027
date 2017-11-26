@@ -10,8 +10,7 @@ $arr_date   = TradeDate::getTradeDates(60);
 $each = 200;
 
 foreach ($arr_date as $date) {
-    if ($date >= 20170919) continue;
-    if (!is_dir("/data/zhanmo/download/$date")) {
+    if (!is_dir(DailyTradeDetail::downloadDir . "$date")) {
         $batch = 1;
         foreach (array_chunk($allsymbols, $each) as $arr_symbols) {
             $msg = time() . "开始下载{$date}第{$batch}组{$each}只股票的交易详单";
@@ -20,10 +19,6 @@ foreach ($arr_date as $date) {
             DailyTradeDetail::downloadMulti($arr_symbols, [$date]);
             $batch++;
         }
-    }
-
-    foreach ($allsymbols as $symbol) {
-        MinuteSummary::calculate($symbol, $date);
     }
 }
 

@@ -12,7 +12,7 @@ class DailyTradeDetail
     //QQ股票详单下载地址样本 http://stock.gtimg.cn/data/index.php?appn=detail&action=download&c=sz002354&d=20170925
 
     const table       = 'trade_detail';//交易详单
-    const downloadDir = '/data/zhanmo/download/zsp/';
+    const downloadDir = '/data/projects/zhanmo/zsp/download/';
 
     //顺序不可随意
     static $arr_columns = [

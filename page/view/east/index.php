@@ -12,3 +12,4 @@
 <br/>
 <br/>
 <a target="_blank" href="?a=east&m=amp_fenbu">涨跌幅分布</a><br/>
+<a target="_blank" href="http://118.190.148.110/zhanmo001/web/">WR统计</a><br/>

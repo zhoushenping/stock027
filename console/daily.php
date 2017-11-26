@@ -24,7 +24,6 @@ StockList::update();
 eastStockInfo::getAll();
 TradeDate::renewTradeDatesFromApi();
 truncate();
-eastDailySummary::getAll();//下载各股的当日统计
 /////////////////每日下周各股的交易详单并生成分钟小计 begin//////////////////////////////////
 $date = $argv[1];
 

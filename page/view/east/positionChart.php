@@ -15,7 +15,7 @@ foreach ($positionInfo['F303S'] as $item) {
     $names[$symbol] = $item['Zqmc'];
     ?>
     <div class="chart_container" id="chart_container_<?= $symbol ?>">
-        <div class="chart_mask"></div>
+<!--        <div class="chart_mask"></div>-->
         <iframe class="small" src="" width="573" height="296"
                 style="" marginheight="0" marginwidth="0" frameborder="0" scrolling="no"></iframe>
         <span></span>

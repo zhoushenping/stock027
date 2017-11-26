@@ -15,9 +15,9 @@
             <tbody>
             <tr class="tb-tr-bot lh300">
                 <td class="tb-tr-right pad-box">
-                    <span>总资产</span>
+                    <span>总盈亏</span>
                     <span class="padl10">
-                        <span class="red"><?= $positionInfo['Zzc'] ?></span>
+                        <span class="red"><?= $positionInfo['Zzc'] - 132000 - 12000 ?></span>
                     </span>
                 </td>
                 <td class="pad-box">

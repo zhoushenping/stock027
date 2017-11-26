@@ -104,7 +104,7 @@ class TradeDate
     {
         $ret = [];
         foreach (DBHandle::select(self::table, "1 ORDER BY `date` DESC") as $val) {
-            $ret[] = $val;
+            $ret[] = $val['date'];
         }
 
         return $ret;

@@ -8,14 +8,15 @@ $amp_low_r          = (int)$_REQUEST['low_amp'];
 $amp_high_r         = (int)$_REQUEST['high_amp'];
 
 if ($marketValue_high_r == 0) $marketValue_high_r = 30000;
-if ($syl_high_r == 0) $syl_high_r = 50;
+if ($syl_high_r == 0) $syl_high_r = 10000;
 if ($amp_high_r == 0) $amp_high_r = $amp_low_r + 1;
 
 $records = eastBigSale::readAll();
 
 foreach ($records as $i => $item) {
-    if ($item['marketValue'] < $marketValue_low_r) unset($records[$i]);;
-    if ($item['marketValue'] > $marketValue_high_r) unset($records[$i]);;
+    if ($item['trade'] == 0) unset($records[$i]);
+    if ($item['marketValue'] < $marketValue_low_r) unset($records[$i]);
+    if ($item['marketValue'] > $marketValue_high_r) unset($records[$i]);
     if ($item['syl'] < $syl_low_r) unset($records[$i]);
     if ($item['syl'] > $syl_high_r) unset($records[$i]);
     if ($item['amp'] < $amp_low_r) unset($records[$i]);

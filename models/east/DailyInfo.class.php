@@ -1,4 +1,14 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: zsp
+ * Date: 2017/11/20
+ * Time: 下午11:31
+ */
+//http://web.ifzq.gtimg.cn/appstock/app/fqkline/get?_var=kline_dayqfq&param=sz002354,day,,,320,qfq&r=0.15702564506218475
+
+//每周
+//http://web.ifzq.gtimg.cn/other/klineweb/klineWeb/weekTrends?code=sz002354&type=qfq&_var=trend_qfq&r=0.23074460136880526
 
 /**
  * Created by PhpStorm.
@@ -6,10 +16,10 @@
  * Date: 2017/10/24
  * Time: 下午9:58
  */
-class eastDailySummary
+class eastDailyInfo
 {
 
-    const table = 'daily_summary';//每日各股统计
+    const table = 'east_daily_info';//每日各股统计
 
     static $columns = [
         '1'  => 'name',
@@ -43,6 +53,8 @@ class eastDailySummary
     {
         $params = self::makeDownloadParams($symbols);
         $ret    = CURL::mfetch($params, 'get');
+
+        var_dump($ret[0]['content']);die;
 
         $arr_columns = array_keys(self::$columns_name);
         sort($arr_columns);
@@ -97,30 +109,17 @@ class eastDailySummary
 
     private static function makeDownloadParams($arr_symbols)
     {
-        $each   = 80;
         $params = [];
 
-        foreach (array_chunk($arr_symbols, $each) as $subArr) {
-            $rand     = Random::getRandomNumber();
-            $str_list = implode(',', $subArr);
+        foreach ($arr_symbols as $symbol) {
+            $rand = Random::getRandomNumber();
 
             $params[] = [
-                "url"    => "http://qt.gtimg.cn/q=$str_list&r=$rand",
+                "url"    => "http://web.ifzq.gtimg.cn/appstock/app/fqkline/get?_var=kline_dayqfq&param={$symbol},day,,,320,qfq&r=$rand",
                 "params" => [],
             ];
         }
 
         return $params;
-    }
-
-    public static function getExistSymbols($date)
-    {
-        $ret = [];
-        $rs  = DBHandle::select(self::table, "`date`='$date'", "`symbol`");
-        foreach ($rs as $item) {
-            $ret[] = $item['symbol'];
-        }
-
-        return $ret;
     }
 }

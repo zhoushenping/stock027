@@ -7,6 +7,7 @@ function getColor($amp)
 }
 
 ?>
+<title>amp</title>
 <div style="margin: 0 auto;width:500px;height:100px;">
     <form action="./?a=east&m=amp_fenbu" method="post">
         市值:

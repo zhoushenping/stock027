@@ -78,7 +78,7 @@ require_once(ROOT_PATH . 'include/config/autoLoad.php');
 //模拟未来当前时间,以方便测试
 $_CURRENT_TIME = Time::getCurrentTime();
 
-define("LOG_DIR", "/data/log/zhanmo.oasgames.com");
+define("LOG_DIR", "/data/log/zsp");
 define('OAS_DOMAIN', 'oasgames.com');//不变
 define("PLATFORM", "home");//所在的平台是app还是home
 
