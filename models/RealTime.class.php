@@ -155,4 +155,15 @@ class RealTime
 
         return (float)($rs[0]['current_sell']);
     }
+
+    static function getPriceList()
+    {
+        $ret = [];
+        $rs  = DBHandle::select(self::table);
+        foreach ($rs as $item) {
+            $ret[$item['symbol']] = $item['trade'];
+        }
+
+        return $ret;
+    }
 }

@@ -50,6 +50,7 @@ class StockList
         $params      = self::makeDownloadParams();
         $ret         = CURL::mfetch($params);
         $arr_columns = array_keys(self::$arr_columns);
+        DBHandle::truncate(self::table);
 
         foreach ($params as $key => $null) {
             $content = $ret[$key]['content'];
@@ -105,5 +106,15 @@ class StockList
         $info = json_decode($content, 1);
 
         return $info;
+    }
+
+    static function readAllRecord()
+    {
+        $ret = [];
+        foreach (DBHandle::select(self::table) as $item) {
+            $ret[$item['symbol']] = $item;
+        }
+
+        return $ret;
     }
 }

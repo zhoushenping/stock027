@@ -27,8 +27,6 @@ header('P3P:CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT
 @ini_set('session.use_cookies', 1);
 @ini_set('session.auto_start', 0);
 
-error_reporting(0);//E_ALL
-//error_reporting(E_ALL);//E_ALL
 define('TEST', 0);
 define('DEVELOP_MODE', 0);//0=非开发模式(上线)	1=测试服上	2=本地开发
 define('DB_SET', 'online');//用那个数据库  online=线上  develop=开发

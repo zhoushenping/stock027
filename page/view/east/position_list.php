@@ -4,7 +4,7 @@
     <div class="maincenter-box-tip">
         <p class="ui-tiptext ui-tiptext-message">
             <span class="newBusi_Tit">
-                资金持仓
+                资金持仓(<?=date('Y-m-d H:i:s')?>)
             </span>
             <span class="refresh" onclick="init();" title="刷新" deluminate_imagetype="png"></span>
         </p>
@@ -17,7 +17,68 @@
                 <td class="tb-tr-right pad-box">
                     <span>总盈亏</span>
                     <span class="padl10">
-                        <span class="red"><?= $positionInfo['Zzc'] - 132000 - 12000 ?></span>
+                        <?
+                        $money = [
+                            6000,//20171122
+                            6000,//20171122
+                            20000,//20171121
+                            10000,
+                            20000,
+                            12000,
+                            20000,
+                            50000,//20170905
+
+                            39000,//20171205
+                            -10000,//20171207
+                            -20000,//20171211
+                            -20000,//20171214
+                            -10000,//20171229
+
+                            20000,//20180110
+                            12000,//20180111
+                            -23000,//20180112
+                            23000,//20180116
+
+                            -13000,//20180202
+                            6000,//20180209
+                            8600,//20180209
+                            -5000,//20180213
+                            -6700,//20180213
+                            26000,//20180217
+                            6000,//20180228
+
+                            -3000,//20180306
+                            9238,//20180323
+                            17700,//20180327
+                            40000,//20180328
+                            40000,//20180330
+                            20000,//20180402
+                            26000,//20180403
+                            -100000,//20180410
+                            -50000,//20180411
+                            -50000,//20180412
+                            -46827.3,//20180413 计提损失
+                            5500,//20180417
+                            28800,//20180417
+                            -10000,//20180419
+                            -30000,//20180420
+                            10000,//20180423
+                            26000,//20180426
+                            -50000,//20180503
+                            10000,//20180511
+                            50000,//20180511
+		            	    30000,//20180518
+                            6500,//20180523
+                            26000,//20180523
+
+
+                            -30000,//20180531
+                            -18000,//20180601
+                        ];
+                        ?>
+
+                        <!--                        123000-->
+                        <span class="green"><?= Number::getFloat($positionInfo['Zzc'] - array_sum($money), 2) ?></span>
                     </span>
                 </td>
                 <td class="pad-box">
@@ -40,13 +101,14 @@
                 <td class="tb-tr-right pad-box">
                     <span>持仓盈亏</span>
                     <span class="padl10">
-                        <span class="red"><?= $positionInfo['Ljyk'] ?></span>
+                        <span class="<?= $positionInfo['Ljyk'] > 0 ? 'red' :
+                            'green' ?>"><?= $positionInfo['Ljyk'] ?></span>
                     </span>
                 </td>
                 <td class="pad-box">
                     <span>资金余额</span>
                     <span class="padl10">
-                        <span class=""><?= $positionInfo['Zjye'] ?></span>
+                        <span class=""></span>
                     </span>
                 </td>
             </tr>
@@ -60,7 +122,8 @@
                 <td class="tb-tr-right pad-box">
                     <span>当日参考盈亏</span>
                     <span class="padl10">
-                        <span class="red"><?= $positionInfo['Drckyk'] ?></span>
+                        <span class="<?= $positionInfo['Drckyk'] > 0 ? 'red' :
+                            'green' ?>"><?= $positionInfo['Drckyk'] ?></span>
                     </span>
                 </td>
                 <td class="pad-box">
@@ -105,10 +168,13 @@
                     <td><?= $item['Zqsl'] ?></td>
                     <td><?= $item['Kysl'] ?></td>
                     <td><?= $item['Cbjg'] ?></td>
-                    <td><?= $item['Zxjg'] ?></td>
-                    <td><?= $item['Zxsz'] ?></td>
-                    <td class="red"><?= $item['Ljyk'] ?></td>
-                    <td class="red"><?= Number::getFloat($item['Ykbl'] * 100) ?></td>
+                    <td><?= Number::getFloat($item['Zxjg'], 2) ?></td>
+                    <td><?= Number::getFloat($item['Zxsz'], 0) ?></td>
+                    <td class="<?= $item['Ljyk'] > 0 ? 'red' : 'green' ?>">
+                        <?= Number::getFloat($item['Ljyk'], 0) ?></td>
+                    <td class="<?= $item['Ykbl'] > 0 ? 'red' : 'green' ?>">
+                        <?= Number::getFloat($item['Ykbl'] * 100, 1) ?>
+                    </td>
                     <td><?= $item['Market'] == 'SA' ? '深圳A股' : '上海A股' ?></td>
                     <td class="w100">
                         <button class="btn btn_buy mr5" type="button"

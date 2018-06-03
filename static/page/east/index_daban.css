@@ -1,0 +1,51 @@
+table, td, th {
+    border: 1px solid skyblue;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 3px 5px;
+}
+
+table {
+    text-align: center;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+td input {
+    display: none;
+    width: 50px;
+}
+
+div .tablesorter-default {
+    text-align: center;
+}
+
+caption {
+    font-size: 20px;
+    color: blue;
+    font-weight: bold;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+input.float {
+    width: 40px;
+    text-align: center;
+    color: deeppink;
+}
+
+input.int {
+    width: 40px;
+    text-align: center;
+    color: deeppink;
+}

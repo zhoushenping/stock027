@@ -4,26 +4,10 @@ require_once(ROOT_PATH . 'include' . DS . 'config' . DS . 'global.php');
 
 set_time_limit(0);
 
-function truncate()
-{
-    global $oas_db_conf;
-    $table = RealTime::table;
-
-    $connection = mysql_connect("{$oas_db_conf['host']}", "{$oas_db_conf['user']}", "{$oas_db_conf['pwd']}")
-    or die ("Unable to connect to server");
-
-    mysql_select_db("{$oas_db_conf['db_name']}") or die ("Unable to select database");
-
-    $sql = "TRUNCATE TABLE `$table`";
-    mysql_query($sql);
-    echo "Table Truncated";
-    mysql_close($connection);
-}
-
 StockList::update();
 eastStockInfo::getAll();
 TradeDate::renewTradeDatesFromApi();
-truncate();
+DBHandle::truncate(RealTime::table);
 /////////////////每日下周各股的交易详单并生成分钟小计 begin//////////////////////////////////
 $date = $argv[1];
 

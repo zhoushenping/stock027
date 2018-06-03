@@ -109,26 +109,36 @@ class DBHandle
         self::execute($sql);
     }
 
-    static function insertMultiIgnore($table, $arr_columns, $arr_data)
+    static function insertMultiIgnore($table, $arr_columns, $arr_data_full)
     {
         $str_columns = implode("`,`", $arr_columns);
 
-        $temp = array();
+        foreach(array_chunk($arr_data_full,2000) as $arr_data){
+            $temp = array();
 
-        foreach ($arr_data as $item) {
-            foreach ($item as $k => $v) {
-                $v        = addslashes($v);
-                $item[$k] = "'$v'";
+            foreach ($arr_data as $item) {
+                foreach ($item as $k => $v) {
+                    $v        = addslashes($v);
+                    $item[$k] = "'$v'";
+                }
+                $uu = implode(",", $item);
+
+                $temp[] = "($uu)";
             }
-            $uu = implode(",", $item);
 
-            $temp[] = "($uu)";
+            $str_values = implode(",", $temp);
+
+            $sql = "INSERT IGNORE INTO `$table` (`$str_columns`) VALUES $str_values";
+
+             self::insert($sql);
         }
 
-        $str_values = implode(",", $temp);
+        return false;
+    }
 
-        $sql = "INSERT IGNORE INTO `$table` (`$str_columns`) VALUES $str_values";
-
-        return self::insert($sql);
+    static function truncate($table)
+    {
+        $sql = "TRUNCATE TABLE `$table`";
+        self::execute($sql);
     }
 }

@@ -11,16 +11,16 @@ class TradeDate
 {
 
     const table = 'trade_dates';
-    //其他指定节假日
-    static $holidayPlus = [
-        '20171001',
-        '20171002',
-        '20171003',
-        '20171004',
-        '20171005',
-        '20171006',
-        '20171007',
-        '20171008',
+
+    //未来的 额外不交易日期
+    static $plus_holidays = [
+        20180618,
+        20180924,
+        20181001,
+        20181002,
+        20181003,
+        20181004,
+        20181005,
     ];
 
     //获取最近n天内的的交易日
@@ -31,12 +31,9 @@ class TradeDate
 
     static function isTradeDate($date)
     {
-        $ret = true;
-        $w   = date('w', strtotime($date));//w=0 周日    w=6 周六
-        if ($w == 0 || $w == 6) $ret = false;//周六日不交易
-        if (in_array($date, self::$holidayPlus)) $ret = false;//其他指定节假日不交易
+        $rs = self::getTradeDatesFromDB();
 
-        return $ret;
+        return in_array($date, $rs);
     }
 
     static function renewTradeDatesFromApi()
@@ -67,7 +64,7 @@ class TradeDate
         $arr = json_decode($content, 1);
         foreach ($arr as $item) {
             if ($item['trade'] > 0) {
-                $ret[] = $item['opendate'];
+                $ret[] = date('Ymd', strtotime($item['opendate']));
             }
         }
 
@@ -80,7 +77,7 @@ class TradeDate
         $count   = self::getTradeDatesFromDB() == [] ? 20000 : 20;
         $symbols = StockList::getSymbols();
         shuffle($symbols);
-        $symbols   = array_slice($symbols, 0, 3);
+        $symbols   = array_slice($symbols, 0, 10);
         $symbols[] = 'sz000001';
         $symbols[] = 'sh600000';
 

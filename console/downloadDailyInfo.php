@@ -2,6 +2,10 @@
 include_once(dirname(__FILE__) . '/../define.php');
 require_once(ROOT_PATH . 'include' . DS . 'config' . DS . 'global.php');
 
+$d = date('Ymd');
+
+if (TradeDate::isTradeDate($d) == false) die;
+
 set_time_limit(0);
 
 $symbols_all  = StockList::getSymbols(0);

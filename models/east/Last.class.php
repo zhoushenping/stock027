@@ -28,7 +28,7 @@ class eastLast
         $arr_columns[] = 'marketValue';
         $arr_columns[] = 'amp';
 
-        DBHandle::delete(self::table);
+        DBHandle::truncate(self::table);
 
         $allStockInfo = eastStockInfo::readAllRecord();
 
@@ -42,6 +42,28 @@ class eastLast
         }
 
         DBHandle::insertMultiIgnore(self::table, $arr_columns, $arr_data);
+    }
+
+    static function getLastPriceList()
+    {
+        $ret = [];
+        $rs  = DBHandle::select(self::table);
+        foreach ($rs as $item) {
+            $ret[$item['symbol']] = $item['trade'];
+        }
+
+        return $ret;
+    }
+
+    static function getLastInfo()
+    {
+        $ret = [];
+        $rs  = DBHandle::select(self::table);
+        foreach ($rs as $item) {
+            $ret[$item['symbol']] = $item;
+        }
+
+        return $ret;
     }
 
 }

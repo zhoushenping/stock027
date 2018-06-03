@@ -32,8 +32,10 @@ class Number
         return number_format($num, $weishu, '.', '');
     }
 
-    static function getDiffRate($a, $b)
+    static function getDiffRate($a, $b, $weishu = 2)
     {
-        return number_format(($a / $b - 1) * 100, 2, '.', '');
+        if ($b == 0) return '-';
+
+        return number_format(($a / $b - 1) * 100, $weishu, '.', '');
     }
 }

@@ -1,13 +1,13 @@
 <!-- Demo styling -->
-<link href="https://mottie.github.io/tablesorter/docs/css/jq.css" rel="stylesheet">
+<link href="./static/common/sort/jq.css" rel="stylesheet">
 
 <!-- jQuery: required (tablesorter works with jQuery 1.2.3+) -->
-<script src="https://mottie.github.io/tablesorter/docs/js/jquery-1.2.6.min.js"></script>
+<script src="./static/common/jquery-1.7.2.min.js"></script>
 
 <!-- Pick a theme, load the plugin & initialize plugin -->
-<link href="https://mottie.github.io/tablesorter/dist/css/theme.default.min.css" rel="stylesheet">
-<script src="https://mottie.github.io/tablesorter/dist/js/jquery.tablesorter.min.js"></script>
-<script src="https://mottie.github.io/tablesorter/dist/js/jquery.tablesorter.widgets.min.js"></script>
+<link href="./static/common/sort/theme.default.min.css" rel="stylesheet">
+<script src="./static/common/sort/jquery.tablesorter.min.js"></script>
+<script src="./static/common/sort/jquery.tablesorter.widgets.min.js"></script>
 <script>
     $(function () {
         $('table.tablesorter').tablesorter({

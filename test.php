@@ -15,3 +15,5 @@ require_once(ROOT_PATH . 'include' . DS . 'config' . DS . 'global.php');
 
 //Zhuli::downloadDailyTop50(TradeDate::getLastDates(90));
 //Zhuli::downloadGegu(['sz002467', 'sh601288'], 3);
+
+var_dump(eastDailySummary::getLastAverageForAll(5));

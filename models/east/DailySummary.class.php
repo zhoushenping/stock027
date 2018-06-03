@@ -123,4 +123,83 @@ class eastDailySummary
 
         return $ret;
     }
+
+    public static function getAverage($symbol, $days = 5)
+    {
+        $ret   = [];
+        $dates = TradeDate::getTradeDates($days);
+        foreach ($dates as $date) {
+            $date = String::filterNoNumber($date);
+            foreach (DailyTradeDetail::getDailyDetail($symbol, $date) as $item) {
+                $ret['volumes'] += $item['volume'];
+                $ret['amounts'] += $item['amount'];
+            }
+        }
+
+        return Number::getFloat($ret['amounts'] / $ret['volumes'], 3);
+    }
+
+    public static function getLastAverageForAll($days = 5)
+    {
+        $info       = [];
+        $ret        = [];
+        $dates      = [];
+        $dates_temp = TradeDate::getTradeDates($days);
+        foreach ($dates_temp as $date) {
+            $date    = String::filterNoNumber($date);
+            $dates[] = $date;
+        }
+
+        $str_dates = implode(',', $dates);
+        $rs        = DBHandle::select(self::table, "`date` IN ($str_dates)");
+
+        foreach ($rs as $item) {
+            $info[$item['symbol']][$item['date']] = [
+                'volume' => $item['volume'],
+                'amount' => $item['amount'],
+            ];
+        }
+
+        foreach (StockList::getSymbols() as $symbol) {
+            foreach ($dates as $date) {
+                if (!isset($info[$symbol][$date]['volume'])) {
+                    foreach (DailyTradeDetail::getDailyDetail($symbol, $date) as $item) {
+                        $info[$symbol][$date]['volume'] += $item['volume'];
+                        $info[$symbol][$date]['amount'] += $item['amount'];
+                    }
+                }
+            }
+        }
+
+        foreach ($info as $symbol => $dailyData) {
+            $a = [];
+
+            foreach ($dailyData as $item) {
+                $a['volumes'] += $item['volume'];
+                $a['amounts'] += $item['amount'];
+            }
+            $ret[$symbol] = Number::getFloat($a['amounts'] / $a['volumes'], 3);
+        }
+
+        return $ret;
+    }
+
+    static function getDayLastPriceList($date)
+    {
+        $date = String::filterNoNumber($date);
+        $ret  = [];
+        $rs   = DBHandle::select(self::table, "`date`='$date'");
+        foreach ($rs as $item) {
+            $ret[$item['symbol']] = $item['last'];
+        }
+
+        return $ret;
+    }
+
+    static function getTopList()
+    {
+        $date = date('Ymd', strtotime('-30 days'));
+
+        return DBHandle::select(self::table, "`date`>=$date and `amp`>=9.9");
+    }
 }

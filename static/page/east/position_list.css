@@ -79,6 +79,9 @@ body, button, input, select, textarea {
 .red {
     color: red;
 }
+.green {
+    color: green;
+}
 
 body, button, input, select, textarea {
     font: 12px/1.5 tahoma, arial, "Hiragino Sans GB", 宋体;

@@ -10,12 +10,36 @@
     </div>
 </div>
 <?
-foreach ($positionInfo['F303S'] as $item) {
+$list1[] = [
+    'Zqdm' => 'sz399001',
+    'Zqmc' => '深证成指',
+];
+$list1[] = [
+    'Zqdm' => 'sh000001',
+    'Zqmc' => '上证指数',
+];
+foreach ($list1 as $item) {
     $symbol         = StockList::getStandardSymbol($item['Zqdm']);
     $names[$symbol] = $item['Zqmc'];
     ?>
     <div class="chart_container" id="chart_container_<?= $symbol ?>">
-<!--        <div class="chart_mask"></div>-->
+        <!--        <div class="chart_mask"></div>-->
+        <iframe class="small" src="" width="573" height="296"
+                style="" marginheight="0" marginwidth="0" frameborder="0" scrolling="no"></iframe>
+        <span></span>
+    </div>
+    <?
+}
+
+echo "<br/>";
+
+$list   = $positionInfo['F303S'];
+foreach ($list as $item) {
+    $symbol         = StockList::getStandardSymbol($item['Zqdm']);
+    $names[$symbol] = $item['Zqmc'];
+    ?>
+    <div class="chart_container" id="chart_container_<?= $symbol ?>">
+        <!--        <div class="chart_mask"></div>-->
         <iframe class="small" src="" width="573" height="296"
                 style="" marginheight="0" marginwidth="0" frameborder="0" scrolling="no"></iframe>
         <span></span>
