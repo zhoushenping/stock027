@@ -12,7 +12,7 @@ class cookie
     static function setOasCookie($key, $val, $days = 1, $dir = "/")
     {
         $t = ($days == 0) ? 0 : time() + 3600 * 24 * $days;
-        setcookie($key, $val, $t, $dir, OAS_DOMAIN);
+        setcookie($key, $val, $t, $dir, null);
     }
 
     static function deleteOasCookie($key, $val = 0, $days = -1, $dir = "/")

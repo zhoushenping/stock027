@@ -1,5 +1,5 @@
 <?php
-$fundsFlow = eastFundsFlow::getList();
-if (count($fundsFlow) == 0) {
+$total = eastMoney::getTotal();
+if ($total == 0) {
     Browser::headerRedirect("?a=east&m=login");
 }

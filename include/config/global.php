@@ -1,5 +1,6 @@
 <?php
 error_reporting(0);
+//error_reporting(E_ALL);
 require_once ROOT_PATH . "models/SupperLog.class.php";
 function register_shutdown_function_handle()
 {

@@ -47,6 +47,7 @@ foreach ($list as $item) {
     <?
 }
 ?>
+<iframe src="./?a=east&m=position_list" frameborder="0" style="width: 900px;height: 600px;border:2px solid lightblue;"></iframe>
 </body>
 <script>
     var names = <?=json_encode($names)?>;
