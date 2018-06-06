@@ -8,58 +8,7 @@
 
 ?>
 <script src="./static/common/jquery-1.7.2.min.js"></script>
-<style>
-    table, td {
-        border-collapse: collapse;
-    }
-
-    td, th {
-        border: 1px solid skyblue;
-        text-align: center;
-        padding: 4px 8px;
-    }
-
-    table {
-        margin: 7px auto;
-    }
-
-    table.sys {
-        margin: 20px auto;
-        width: 800px;
-    }
-
-    .sub2 {
-        display: none;
-    }
-
-    td.clickable:hover {
-        background: lightpink;
-        cursor: pointer;
-    }
-
-    .close {
-        position: absolute;
-        cursor: pointer;
-        right: 6px;
-        top: 4px;
-    }
-
-    .close:hover {
-        background: lightpink;
-    }
-
-    iframe {
-        margin: 7px 0;
-    }
-
-    .sub2 table tr:hover {
-        background: lightpink;
-    }
-
-    button {
-        cursor: pointer;
-    }
-</style>
+<link rel="stylesheet" href="./static/page/east/top_counter.css">
 <table class="sys">
     <caption>每日涨停数统计</caption>
     <tr>

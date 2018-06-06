@@ -155,3 +155,13 @@
         <div class="pager fr"></div>
     </div>
 </div>
+<script src="./static/common/jquery-1.7.2.min.js"></script>
+<script>
+    function refresh() {
+        window.location.reload();
+    }
+
+    $(function () {
+        var intv = setTimeout('refresh();', 5000);
+    })
+</script>
