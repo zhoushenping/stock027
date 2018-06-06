@@ -1,4 +1,5 @@
 <?php
+if (ZhanmoUsers::isLogined() == false) die;
 $positionInfo = eastPosition::getList();
 $temp         = $positionInfo['F303S'];
 

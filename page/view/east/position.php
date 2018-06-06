@@ -1,4 +1,4 @@
-<title>positionChart</title>
+<title>position</title>
 <link rel="stylesheet" href="./static/page/east/chart.css">
 <script src="./static/common/jquery-1.7.2.min.js"></script>
 <body>

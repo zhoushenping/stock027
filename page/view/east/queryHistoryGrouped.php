@@ -1,6 +1,24 @@
 <title>history</title>
 <script src="./static/common/jquery-1.7.2.min.js"></script>
 <script src="./static/common/tools.php"></script>
+<style>
+    td, th {
+        border: 1px solid skyblue;
+        padding: 2px 10px;
+    }
+
+    td, th, table {
+        border-collapse: collapse;
+    }
+
+    table {
+        margin: 10px auto 20px;
+    }
+
+    .symbol {
+        color: deeppink;
+    }
+</style>
 <?
 $plus  = [];
 $Zjfss = [];
@@ -89,24 +107,7 @@ foreach ($symbols as $symbol) {
 ?>
 
 总仓盈亏=<?= Number::getFloat(array_sum($plus), 2) ?>
-<style>
-    td, th {
-        border: 1px solid skyblue;
-        padding: 2px 10px;
-    }
 
-    td, th, table {
-        border-collapse: collapse;
-    }
-
-    table {
-        margin: 10px auto 20px;
-    }
-
-    .symbol {
-        color: deeppink;
-    }
-</style>
 <script>
     function setPriority(symb, val) {
         var url = "./?a=eastAjax&m=priority&symbol=" + symb + "&val=" + val;

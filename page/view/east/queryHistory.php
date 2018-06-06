@@ -1,6 +1,24 @@
 <?
 $Zjfss = [];
 ?>
+<style>
+    td, th {
+        border: 1px solid skyblue;
+        padding: 2px 10px;
+    }
+
+    td, th, table {
+        border-collapse: collapse;
+    }
+
+    table {
+        margin: 10px auto 20px;
+    }
+
+    .symbol {
+        color: deeppink;
+    }
+</style>
 <table>
     <tr>
         <?
@@ -44,21 +62,4 @@ $Zjfss = [];
         <td colspan="<?= count($columns) ?>">金额变动合计:<?= Number::getFloat(array_sum($Zjfss), 2) ?></td>
     </tr>
 </table>
-<style>
-    td, th {
-        border: 1px solid skyblue;
-        padding: 2px 10px;
-    }
 
-    td, th, table {
-        border-collapse: collapse;
-    }
-
-    table {
-        margin: 10px auto 20px;
-    }
-
-    .symbol {
-        color: deeppink;
-    }
-</style>
