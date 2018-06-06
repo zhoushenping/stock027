@@ -1,0 +1,52 @@
+table, td, th {
+    border: 1px solid skyblue;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 3px 5px;
+}
+
+table {
+    text-align: center;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+.add {
+    cursor: pointer;
+}
+
+.add:hover {
+    color: deeppink;
+}
+
+.add.invalid {
+    cursor: default;
+    color: whitesmoke;
+}
+
+td input {
+    display: none;
+    width: 50px;
+}
+
+div .tablesorter-default {
+    text-align: center;
+}
+
+caption {
+    font-size: 20px;
+    color: blue;
+    font-weight: bold;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}

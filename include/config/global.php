@@ -78,6 +78,7 @@ require_once(ROOT_PATH . 'include/config/autoLoad.php');
 $_CURRENT_TIME = Time::getCurrentTime();
 
 define("LOG_DIR", "/data/log/zsp");
+define("DAILY_TRADE_DOWNLOAD_DIR", '/data/zhanmo/zsp/download/');
 define('OAS_DOMAIN', 'oasgames.com');//不变
 define("PLATFORM", "home");//所在的平台是app还是home
 
