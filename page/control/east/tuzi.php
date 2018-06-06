@@ -7,32 +7,43 @@
  */
 
 /*从5月30日起
-
 找到这段时间内的最高价 top
-
 如果在那之前和之后分别出现低价  low1  low2
-
 以及现价now
-
 now>low2>low1
-
 top的日期需要大于low1的日期
-
-
-
-
 */
+
+set_time_limit(0);
+ini_set("memory_limit", "500M");
+
+$fenhongSymbols = [];//指定日期范围内有分红的股票的代码
+foreach (eastFenhong::queryFromOnline() as $symbol => $arr) {
+    foreach ($arr as $date => $null) {
+        if (20180530 <= $date) {
+            $fenhongSymbols[] = $symbol;
+        }
+    }
+}
+
 $lastInfo = eastLast::getLastInfo();
 $where    = "`date`>=20180530 AND `date`<=20180605 ORDER BY `symbol`,`date`";
 $rs       = DBHandle::select(DailySummary::table, $where, "`date`,`symbol`,`low`,`high`");
 $temp     = [];
 
-foreach ($rs as $item) {
+foreach ($rs as $i => $item) {
+    $columns = ['open', 'yesterday', 'high', 'low', 'last'];
+    if (in_array($item['symbol'], $fenhongSymbols)) {
+        foreach ($columns as $col) {
+            $item[$col] = eastFenhong::getLaterPrice($item['symbol'], $item[$col], $item['date']);
+            $item[$col] = Number::getFloat($item[$col], 2);
+        }
+    }
+
     $temp[$item['symbol']][] = $item;
 }
 
 foreach ($temp as $symbol => $items) {
-//    if ($symbol != 'sh601100') continue;
     $topDate = 0;
     $top     = 0;
     foreach ($items as $item) {
@@ -60,9 +71,19 @@ foreach ($temp as $symbol => $items) {
         }
     }
 
-    $huitiao = Number::getDiffRate($low2, $top);
+    $price_now = $lastInfo[$symbol]['trade'];
+    $low_today = $lastInfo[$symbol]['low'];
 
-    if ($huitiao > -4) continue;//过滤掉上下势头不够强烈的
+    $huitiao_max = Number::getDiffRate($low2, $top);
+    $huitiao_now = Number::getDiffRate($price_now, $top);
+    $bonusSpace  = Number::getPercent($top - $price_now, $top - $low1, 2);//盈利空间
+
+    if ($huitiao_max > -5) continue;//过滤掉上下势头不够强烈的
+    if ($huitiao_now > -4) continue;//过滤掉上下势头不够强烈的
+
+    if ($bonusSpace < 60) continue;//盈利空间需要不低于60%
+    if ($price_now < $low2) continue;//现价需要不低于之前的后谷价
+    if ($low_today < $low2) continue;//今天最低价需要不低于之前的后谷价
 
     if ($low1 == 0) continue;
 
@@ -71,11 +92,13 @@ foreach ($temp as $symbol => $items) {
     }
 
     $new = [
-        'top'     => $top,
-        'topDate' => $topDate,
-        'low1'    => $low1,
-        'low2'    => $low2,
-        'huitiao' => $huitiao,
+        'top'         => $top,
+        'topDate'     => $topDate,
+        'low1'        => $low1,
+        'low2'        => $low2,
+        'huitiao_max' => $huitiao_max,//最大回调比
+        'huitiao_now' => $huitiao_now,//现价回调比
+        'bonusSpace'  => $bonusSpace,//盈利空间
     ];
 
     $info[] = array_merge($lastInfo[$symbol], $new);
@@ -83,9 +106,9 @@ foreach ($temp as $symbol => $items) {
 
 function pailie($a, $b)
 {
-    if ($a['huitiao'] == $b['huitiao']) return 0;
+    if ($a['huitiao_max'] == $b['huitiao_max']) return 0;
 
-    return ($a['huitiao'] < $b['huitiao']) ? -1 : 1;
+    return ($a['huitiao_max'] < $b['huitiao_max']) ? -1 : 1;
 }
 
 usort($info, 'pailie');

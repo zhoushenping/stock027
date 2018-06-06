@@ -6,10 +6,26 @@
 <script src="./static/common/sort/jquery.tablesorter.widgets.min.js"></script>
 <script src="./static/page/east/tuzi.js"></script>
 <link rel="stylesheet" href="./static/page/east/tuzi.css">
+<style>
+    .blue {
+        color: blue;
+    }
 
+    .red {
+        color: red;
+    }
+
+    .purple {
+        color: purple;
+    }
+
+    .deeppink {
+        color: deeppink;
+    }
+</style>
 <div style="width: 1200px;margin:50px auto;">
     <table class="tablesorter">
-        <caption>兔子股票</caption>
+        <caption>兔子股票(<?= count($info) ?>)只</caption>
         <thead>
         <tr>
             <th class="sorter-false">股票代码</th>
@@ -17,12 +33,14 @@
             <th class="number">市值(亿)</th>
             <th class="number">市盈率</th>
             <th class="number">现涨幅</th>
-            <th class="sorter-false">现价</th>
+            <th class="sorter-false">前谷价</th>
             <th class="sorter-false">最高价</th>
             <th class="sorter-false">最高价日期</th>
-            <th class="sorter-false">前谷价</th>
             <th class="sorter-false">后谷价</th>
             <th class="number">最大回调比</th>
+            <th class="sorter-false">现价</th>
+            <th class="number">现价回调比</th>
+            <th class="number">盈利空间</th>
             <th class="sorter-false">操作</th>
         </tr>
         </thead>
@@ -37,15 +55,17 @@
                        target="_blank"><?= $item['symbol'] ?></a>
                 </td>
                 <td><?= $item['name'] ?></td>
-                <td><?= Number::getFloat($item['marketValue'], 0) ?></td>
+                <td><?= Number::getFloat($item['marketValue'], 0) ?>亿</td>
                 <td><?= Number::getFloat($item['syl'], 1) ?></td>
                 <td class="<?= $item['amp'] > 0 ? 'red' : 'green' ?>"><?= Number::getFloat($item['amp'], 1) ?>%</td>
-                <td><?= $item['trade'] ?></td>
-                <td><?= $item['top'] ?></td>
-                <td><?= $item['topDate'] ?></td>
                 <td><?= $item['low1'] ?></td>
-                <td><?= $item['low2'] ?></td>
-                <td><?= $item['huitiao'] ?>%</td>
+                <td class="blue"><?= $item['top'] ?></td>
+                <td class="blue"><?= $item['topDate'] ?></td>
+                <td class="red"><?= $item['low2'] ?></td>
+                <td class="red"><?= $item['huitiao_max'] ?>%</td>
+                <td class="deeppink"><?= $item['trade'] ?></td>
+                <td class="deeppink"><?= $item['huitiao_now'] ?>%</td>
+                <td class="purple"><?= $item['bonusSpace'] ?>%</td>
                 <td>
                     <button class="viewChart">查看K线图</button>
                 </td>

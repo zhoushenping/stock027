@@ -162,6 +162,7 @@
     }
 
     $(function () {
-        var intv = setTimeout('refresh();', 5000);
+        var t = <?=Time::isTradeTime() ? 10 : 120?>;
+        var intv = setTimeout('refresh();', t * 1000);
     })
 </script>
