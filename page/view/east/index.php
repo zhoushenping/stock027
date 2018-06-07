@@ -29,3 +29,4 @@ else {
 <a target="_blank" href="?a=east&m=bigAmp3">3日大跌股</a><br/>
 <a target="_blank" href="?a=east&m=topCounter">每日涨停统计</a><br/>
 <a target="_blank" href="?a=east&m=daban">打板搜索</a><br/>
+<a target="_blank" href="?a=east&m=tuzi">抓兔子</a><br/>

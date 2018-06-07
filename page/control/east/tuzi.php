@@ -17,17 +17,20 @@ top的日期需要大于low1的日期
 set_time_limit(0);
 ini_set("memory_limit", "500M");
 
+$date_s = 20180530;
+$date_e = 20180606;
+
 $fenhongSymbols = [];//指定日期范围内有分红的股票的代码
 foreach (eastFenhong::queryFromOnline() as $symbol => $arr) {
     foreach ($arr as $date => $null) {
-        if (20180530 <= $date) {
+        if ($date_s <= $date) {
             $fenhongSymbols[] = $symbol;
         }
     }
 }
 
 $lastInfo = eastLast::getLastInfo();
-$where    = "`date`>=20180530 AND `date`<=20180605 ORDER BY `symbol`,`date`";
+$where    = "`date`>=$date_s AND `date`<=$date_e ORDER BY `symbol`,`date`";
 $rs       = DBHandle::select(DailySummary::table, $where, "`date`,`symbol`,`low`,`high`");
 $temp     = [];
 

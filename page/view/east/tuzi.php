@@ -23,9 +23,11 @@
         color: deeppink;
     }
 </style>
-<div style="width: 1200px;margin:50px auto;">
+<div style="width: 1200px;margin:0px auto;">
     <table class="tablesorter">
-        <caption>兔子股票(<?= count($info) ?>)只</caption>
+        <caption>[<span class="red"><?= $date_s ?>-<?= $date_e ?></span>]兔子股票(<span
+                class="red"><?= count($info) ?></span>)只
+        </caption>
         <thead>
         <tr>
             <th class="sorter-false">股票代码</th>

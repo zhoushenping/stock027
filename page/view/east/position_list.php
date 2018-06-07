@@ -18,12 +18,10 @@
                     <span>总盈亏</span>
                     <span class="padl10">
                         <?
-                        $money = [
-                            46827.3,//20180413 计提损失
-                        ];
+                        $positionInfo['zyk'] = Number::getFloat($positionInfo['Zzc'] - eastMoney::getTotal(), 2);
                         ?>
                         <span class="green">
-                            <?= Number::getFloat($positionInfo['Zzc'] - eastMoney::getTotal() + array_sum($money), 2) ?>
+                            <?= $positionInfo['zyk'] ?>
                         </span>
                     </span>
                 </td>
@@ -135,6 +133,9 @@
                 </tr>
                 <?
             }
+
+            eastBonus::insertRecord('1002', $positionInfo['zyk'], $positionInfo);
+
             ?>
             <tr class="red">
                 <td class="black fb" colspan="2">合 计</td>
