@@ -47,8 +47,8 @@ body, button, input, select, textarea {
 
 .v_con {
     float: left;
-    width: 815px;
-    _width: 770px;
+    width: 1000px;
+    _width: 1200px;
     margin-left: 15px;
     position: relative;
     min-height: 50px;
@@ -113,10 +113,10 @@ caption, th {
     text-align: center;
 }
 
-.listtable table td {
+.listtable table td, .listtable table th {
     height: 42px;
     text-align: center;
-    border-bottom: 1px solid #eee;
+    border: 1px solid black;
     vertical-align: middle;
 }
 

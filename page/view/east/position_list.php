@@ -1,5 +1,14 @@
 <title>position</title>
 <link rel="stylesheet" href="./static/page/east/position_list.css">
+
+
+<script src="./static/common/jquery-1.7.2.min.js"></script>
+<script src="./static/common/tools.php"></script>
+<link href="./static/common/sort/jq.css" rel="stylesheet">
+<link href="./static/common/sort/theme.default.min.css" rel="stylesheet">
+<script src="./static/common/sort/jquery.tablesorter.min.js"></script>
+<script src="./static/common/sort/jquery.tablesorter.widgets.min.js"></script>
+<script src="./static/page/east/position_list.js"></script>
 <div class="v_con hktrade pagetradeb Financial-position">
     <div class="maincenter-box-tip">
         <p class="ui-tiptext ui-tiptext-message">
@@ -11,7 +20,7 @@
     </div>
 
     <div id="assest_cont" style="margin-bottom:10px;">
-        <table class="zichan" style="width:100%;">
+        <table class="zichan" style="width:70%;">
             <tbody>
             <tr class="tb-tr-bot lh300">
                 <td class="tb-tr-right pad-box">
@@ -79,25 +88,27 @@
         </table>
     </div>
     <div class="listtable">
-        <table>
+        <table class="tablesorter">
             <thead>
             <tr>
-                <th>证券代码</th>
-                <th>证券名称</th>
-                <th>持仓数量</th>
-                <th>可用数量</th>
-                <th>成本价</th>
-                <th>当前价</th>
-                <th>最新市值</th>
-                <th>浮动盈亏</th>
-                <th>盈亏比例(%)</th>
-                <th>交易市场</th>
-                <th>操作</th>
+                <th class="number">证券代码</th>
+                <th class="sorter-false">证券名称</th>
+                <th class="sorter-false">持仓数量</th>
+                <th class="sorter-false">可用数量</th>
+                <th class="sorter-false">成本价</th>
+                <th class="sorter-false">当前价</th>
+                <th class="number">最新市值</th>
+                <th class="number">浮动盈亏</th>
+                <th class="number">盈亏比例</th>
+                <th class="number">当日盈亏</th>
+                <th class="number">当日盈亏比例</th>
+                <th class="sorter-false">操作</th>
             </tr>
             </thead>
             <tbody id="tabBody">
             <?
             foreach ($positionInfo['F303S'] as $item) {
+                $item['Zqdm'] = StockList::getStandardSymbol($item['Zqdm']);
                 $sum['Zqsl'] += $item['Zqsl'];
                 $sum['Kysl'] += $item['Kysl'];
                 $sum['Ljyk'] += $item['Ljyk'];
@@ -107,8 +118,9 @@
                     <td><a href="http://quote.eastmoney.com/search.html?stockcode=<?= $item['Zqdm'] ?>"
                            target="_blank"><?= $item['Zqdm'] ?></a>
                     </td>
-                    <td><a href="http://quote.eastmoney.com/search.html?stockcode=<?= $item['Zqdm'] ?>"
-                           target="_blank"><?= $item['Zqmc'] ?></a></td>
+                    <td>
+                        <button class="viewChart"><?= $item['Zqmc'] ?></button>
+                    </td>
                     <td><?= $item['Zqsl'] ?></td>
                     <td><?= $item['Kysl'] ?></td>
                     <td><?= $item['Cbjg'] ?></td>
@@ -117,9 +129,10 @@
                     <td class="<?= $item['Ljyk'] > 0 ? 'red' : 'green' ?>">
                         <?= Number::getFloat($item['Ljyk'], 0) ?></td>
                     <td class="<?= $item['Ykbl'] > 0 ? 'red' : 'green' ?>">
-                        <?= Number::getFloat($item['Ykbl'] * 100, 1) ?>
+                        <?= Number::getFloat($item['Ykbl'] * 100, 1) ?>%
                     </td>
-                    <td><?= $item['Market'] == 'SA' ? '深圳A股' : '上海A股' ?></td>
+                    <td class="<?= $item['Drljyk'] > 0 ? 'red' : 'green' ?>"><?= (float)$item['Drljyk'] ?></td>
+                    <td class="<?= $item['Drykbl'] > 0 ? 'red' : 'green' ?>"><?= number_format($item['Drykbl'] * 100, 1) ?>%</td>
                     <td class="w100">
                         <button class="btn btn_buy mr5" type="button"
                                 onclick="javascript:window.open('https://jy.xzsec.com//Trade/Buy?code=<?= $item['Zqdm'] ?>&name=<?= $item['Zqmc'] ?>&moneytype=');">
@@ -137,6 +150,7 @@
             eastBonus::insertRecord('1002', $positionInfo['zyk'], $positionInfo);
 
             ?>
+            <!--
             <tr class="red">
                 <td class="black fb" colspan="2">合 计</td>
                 <td><?= $sum['Zqsl'] ?></td>
@@ -149,6 +163,7 @@
                 <td></td>
                 <td></td>
             </tr>
+            -->
             </tbody>
         </table>
     </div>
@@ -156,7 +171,6 @@
         <div class="pager fr"></div>
     </div>
 </div>
-<script src="./static/common/jquery-1.7.2.min.js"></script>
 <script>
     function refresh() {
         window.location.reload();
@@ -164,6 +178,6 @@
 
     $(function () {
         var t = <?=Time::isTradeTime() ? 10 : 120?>;
-        var intv = setTimeout('refresh();', t * 1000);
+        var intv = setTimeout('refresh();', t * 1000000);
     })
 </script>

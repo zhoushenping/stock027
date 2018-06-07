@@ -25,9 +25,17 @@ class eastMoney
 
     static function getList()
     {
-        $params = self::makeGetListParams();
+        $cacheKey = 'eastMoney1002';
 
-        return self::makeGetListRequest($params);
+        $ret = Mem::get($cacheKey);
+
+        if (!$ret) {
+            $params = self::makeGetListParams();
+            $ret    = self::makeGetListRequest($params);
+            if ($ret) Mem::set($cacheKey, $ret, 300);
+        }
+
+        return $ret;
     }
 
     private function makeGetListRequest($params)
