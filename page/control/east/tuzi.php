@@ -18,13 +18,13 @@ set_time_limit(0);
 ini_set("memory_limit", "500M");
 
 $date_s = 20180530;
-$date_e = 20180606;
+$date_e = 20180607;
 
 $fenhongSymbols = [];//指定日期范围内有分红的股票的代码
 foreach (eastFenhong::queryFromOnline() as $symbol => $arr) {
     foreach ($arr as $date => $null) {
         if ($date_s <= $date) {
-            $fenhongSymbols[] = $symbol;
+            $fenhongSymbols[$symbol] = 1;
         }
     }
 }
@@ -35,8 +35,8 @@ $rs       = DBHandle::select(DailySummary::table, $where, "`date`,`symbol`,`low`
 $temp     = [];
 
 foreach ($rs as $i => $item) {
-    $columns = ['open', 'yesterday', 'high', 'low', 'last'];
-    if (in_array($item['symbol'], $fenhongSymbols)) {
+    $columns = ['high', 'low'];
+    if (isset($fenhongSymbols[$item['symbol']])) {
         foreach ($columns as $col) {
             $item[$col] = eastFenhong::getLaterPrice($item['symbol'], $item[$col], $item['date']);
             $item[$col] = Number::getFloat($item[$col], 2);
@@ -77,16 +77,19 @@ foreach ($temp as $symbol => $items) {
     $price_now = $lastInfo[$symbol]['trade'];
     $low_today = $lastInfo[$symbol]['low'];
 
-    $huitiao_max = Number::getDiffRate($low2, $top);
-    $huitiao_now = Number::getDiffRate($price_now, $top);
+    $shangpo_max = Number::getDiffRate($low1, $top) * -1;
+    $xiapo_max   = Number::getDiffRate($low2, $top) * -1;
+    $xiapo_now   = Number::getDiffRate($price_now, $top) * -1;
     $bonusSpace  = Number::getPercent($top - $price_now, $top - $low1, 2);//盈利空间
 
-    if ($huitiao_max > -5) continue;//过滤掉上下势头不够强烈的
-    if ($huitiao_now > -4) continue;//过滤掉上下势头不够强烈的
+    if ($xiapo_max < 5) continue;//过滤掉上下势头不够强烈的
+    if ($xiapo_now < 4) continue;//过滤掉上下势头不够强烈的
 
-    if ($bonusSpace < 60) continue;//盈利空间需要不低于60%
-    if ($price_now < $low2) continue;//现价需要不低于之前的后谷价
-    if ($low_today < $low2) continue;//今天最低价需要不低于之前的后谷价
+    if ($bonusSpace < 50) continue;//盈利空间需要不低于50%
+    if ($price_now < $low2 * 1.005) continue;//现价需要不低于之前的后谷价加千分之五
+    if ($low_today <= $low2) continue;//今天最低价需要不低于之前的后谷价
+//    if ($price_now < $low_today * 1.005) continue;//现价需要不低于今天最低价加千分之五
+    if (strpos($symbol, 'sz30') === 0) continue;
 
     if ($low1 == 0) continue;
 
@@ -99,8 +102,9 @@ foreach ($temp as $symbol => $items) {
         'topDate'     => $topDate,
         'low1'        => $low1,
         'low2'        => $low2,
-        'huitiao_max' => $huitiao_max,//最大回调比
-        'huitiao_now' => $huitiao_now,//现价回调比
+        'shangpo_max' => $shangpo_max,//最大回调
+        'xiapo_max'   => $xiapo_max,//最大回调
+        'xiapo_now'   => $xiapo_now,//现价回调
         'bonusSpace'  => $bonusSpace,//盈利空间
     ];
 
@@ -109,9 +113,9 @@ foreach ($temp as $symbol => $items) {
 
 function pailie($a, $b)
 {
-    if ($a['huitiao_max'] == $b['huitiao_max']) return 0;
+    if ($a['xiapo_now'] == $b['xiapo_now']) return 0;
 
-    return ($a['huitiao_max'] < $b['huitiao_max']) ? -1 : 1;
+    return ($a['xiapo_now'] > $b['xiapo_now']) ? -1 : 1;
 }
 
 usort($info, 'pailie');

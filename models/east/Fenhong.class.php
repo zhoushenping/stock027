@@ -37,8 +37,13 @@ class eastFenhong
 
     static function getConfig($symbol)
     {
-        $info = self::queryFromOnline();
-        $ret  = $info[$symbol];
+        static $info = [];
+
+        if (empty($info)) {
+            $info = self::queryFromOnline();
+        }
+
+        $ret = $info[$symbol];
         ksort($ret);
 
         return $ret;

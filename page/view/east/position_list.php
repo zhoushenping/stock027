@@ -38,7 +38,7 @@
                     <span>总市值</span>
                     <span class="padl10">
                         <span class="">
-                            <span class="red"><?= $positionInfo['Zxsz'] ?></span>
+                            <span class="red"><?= (float)$positionInfo['Zxsz'] ?></span>
                         </span>
                     </span>
                 </td>
@@ -76,7 +76,7 @@
                     <span>当日参考盈亏</span>
                     <span class="padl10">
                         <span class="<?= $positionInfo['Drckyk'] > 0 ? 'red' :
-                            'green' ?>"><?= $positionInfo['Drckyk'] ?></span>
+                            'green' ?>"><?= (float)$positionInfo['Drckyk'] ?></span>
                     </span>
                 </td>
                 <td class="pad-box">
@@ -132,7 +132,9 @@
                         <?= Number::getFloat($item['Ykbl'] * 100, 1) ?>%
                     </td>
                     <td class="<?= $item['Drljyk'] > 0 ? 'red' : 'green' ?>"><?= (float)$item['Drljyk'] ?></td>
-                    <td class="<?= $item['Drykbl'] > 0 ? 'red' : 'green' ?>"><?= number_format($item['Drykbl'] * 100, 1) ?>%</td>
+                    <td class="<?= $item['Drykbl'] > 0 ? 'red' : 'green' ?>">
+                        <?= number_format($item['Drykbl'] * 100, 1) ?>%
+                    </td>
                     <td class="w100">
                         <button class="btn btn_buy mr5" type="button"
                                 onclick="javascript:window.open('https://jy.xzsec.com//Trade/Buy?code=<?= $item['Zqdm'] ?>&name=<?= $item['Zqmc'] ?>&moneytype=');">
@@ -172,12 +174,26 @@
     </div>
 </div>
 <script>
+    var isHover = false;
+
+
     function refresh() {
+        if (isHover) return false;
         window.location.reload();
     }
 
     $(function () {
+
+        $('.listtable').hover(
+            function () {
+                isHover = true;
+            },
+            function () {
+                isHover = false;
+            }
+        );
+
         var t = <?=Time::isTradeTime() ? 10 : 120?>;
-        var intv = setTimeout('refresh();', t * 1000000);
+        var intv = setInterval('refresh();', t * 1000);
     })
 </script>

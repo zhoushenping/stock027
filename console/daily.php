@@ -7,6 +7,7 @@ set_time_limit(0);
 StockList::update();
 eastStockInfo::getAll();
 TradeDate::renewTradeDatesFromApi();
+eastZhishu::refresh();//更新指数的每日信息
 DBHandle::truncate(RealTime::table);
 /////////////////每日下周各股的交易详单并生成分钟小计 begin//////////////////////////////////
 $date = $argv[1];
