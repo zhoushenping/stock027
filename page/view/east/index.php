@@ -1,8 +1,8 @@
 <title>east</title>
 <?
 if (ZhanmoUsers::isLogined()) {
-    $total = eastMoney::getTotal();
-    if ($total == 0) {
+    $positionList = eastPosition::getList();
+    if (empty($positionList)) {
         Browser::headerRedirect("?a=east&m=login");
     }
     ?>

@@ -16,6 +16,8 @@
                 资金持仓(<?= date('Y-m-d H:i:s') ?>)
             </span>
             <button class="refresh" onclick="window.location.reload();" title="" deluminate_imagetype="png">刷新</button>
+            <button class="refresh" onclick="refresh('money');" title="" deluminate_imagetype="png">刷新银证</button>
+            <button class="refresh" onclick="refresh('position');" title="" deluminate_imagetype="png">刷新交易</button>
         </p>
     </div>
 
@@ -180,6 +182,16 @@
     function refresh() {
         if (isHover) return false;
         window.location.reload();
+    }
+
+    function refresh(_type) {
+        var url = './?a=eastAjax&m=refresh_' + _type;
+        var call = function (res) {
+            window.location.reload();
+        }
+
+        ajaxRequest(url, call);
+
     }
 
     $(function () {

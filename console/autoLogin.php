@@ -4,6 +4,7 @@ require_once(ROOT_PATH . 'include' . DS . 'config' . DS . 'global.php');
 require_once(ROOT_PATH . 'include/libs/dama2/Dama2CurlApi.php');
 set_time_limit(300);
 $d = date('Y-m-d');
+die;
 
 //if (TradeDate::isTradeDate($d) == false) die;//非工作日  不登录
 

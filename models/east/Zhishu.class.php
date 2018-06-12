@@ -45,6 +45,11 @@ class eastZhishu
         'amp'       => '涨跌幅',
     ];
 
+    static function get($symbol)
+    {
+        return DBHandle::select(self::table, "`symbol`='{$symbol}' ORDER BY `date` DESC");
+    }
+
     static function refresh()
     {
         $params      = self::makeDownloadParams();
