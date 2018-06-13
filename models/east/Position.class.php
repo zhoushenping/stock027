@@ -44,8 +44,7 @@ class eastPosition
             $cache['F303S'][$k]['Ljyk']   = $item['Zqsl'] * ($last[$symbol] - $item['Cbjg']);//当前股累计盈亏
             $cache['F303S'][$k]['Drljyk'] =
                 number_format($cache['F303S'][$k]['Ljyk'] - $ljyk_last[$symbol], 0);//当前股的当日累计盈亏
-            $cache['F303S'][$k]['Drykbl'] =
-                number_format($cache['F303S'][$k]['Drljyk'] / $item['Cbjg'] / $item['Zqsl'], 0, 2);
+            $cache['F303S'][$k]['Drykbl'] = $cache['F303S'][$k]['Drljyk'] / $item['Cbjg'] / $item['Zqsl'];
 
             $cache['Zxsz'] += $last[$symbol] * $item['Zqsl'];
             $cache['Ljyk'] += $cache['F303S'][$k]['Ljyk'];//总累计盈亏
@@ -101,6 +100,7 @@ class eastPosition
                 'moneyType' => 'RMB',
             ],
         ];
+        Log2::save_run_log(json_encode($params), 'yali_east');
 
         return $params;
     }

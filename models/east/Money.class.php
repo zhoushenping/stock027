@@ -91,6 +91,7 @@ class eastMoney
                     'dwc'  => 1,
                 ],
             ];
+            Log2::save_run_log(json_encode($params), 'yali_east');
 
             if (strtotime("-$a months") < strtotime($LastestDate)) break;
         }

@@ -15,5 +15,6 @@
 //var_dump(eastFenhong::getLaterPrice('sz002354', 70.47, 20170503));
 //eastZhishu::refresh();
 //var_dump(eastPosition::getList());
+//var_dump(Mem::get('positionLast20180612'));
 
 

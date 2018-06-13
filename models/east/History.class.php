@@ -75,6 +75,7 @@ class eastHistory
         }
         Log2::save_run_log(count($records), 'bbbb');
 
+        DBHandle::truncate(self::table);
         DBHandle::insertMultiIgnore(self::table, $arr_columns, $arr_data);
 
         return count($arr_data);

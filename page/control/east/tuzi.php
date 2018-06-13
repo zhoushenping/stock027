@@ -18,7 +18,7 @@ set_time_limit(0);
 ini_set("memory_limit", "500M");
 
 $date_s = 20180530;
-$date_e = 20180607;
+$date_e = 20180612;
 
 $fenhongSymbols = [];//指定日期范围内有分红的股票的代码
 foreach (eastFenhong::queryFromOnline() as $symbol => $arr) {

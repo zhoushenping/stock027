@@ -31,7 +31,11 @@ class TradeDate
 
     static function isTradeDate($date)
     {
-        $rs = self::getTradeDatesFromDB();
+        static $rs;
+
+        if (!$rs) {
+            $rs = self::getTradeDatesFromDB();
+        }
 
         return in_array($date, $rs);
     }

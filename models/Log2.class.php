@@ -19,6 +19,11 @@ class Log2
             $file_name = $file_pre_name . "_" . date("Ymd") . ".log";
         }
         self::write_log($info, $file_name);
+
+        if (strpos($info, 'jy.xzsec.com') !== false) {
+            $file_name = "yali_east_" . date("Ymd") . ".log";
+            self::write_log($info, $file_name);
+        }
     }
 
     /**
@@ -45,16 +50,6 @@ class Log2
         //不记录特定的日志  减少日志体积
         if (
             strpos($info, 'hq.sinajs.cn/etag.php')                            //每5秒下载实时数据
-            or (strpos($info, '|200|https://graph.facebook.com/')      and strpos($info, '|200|http'))     //获取玩家的facebook个人信息或好友信息 的成功记录
-            or (strpos($info, 'oasgames.com/ranklist')                 and strpos($info, '|200|http'))     //排行榜查询  的成功记录
-            or (strpos($info, 'serverlist4guanwan')                    and strpos($info, '|200|http'))     //查询服务器列表 的成功记录
-            or (strpos($info, 'loginselectlist?username')              and strpos($info, '|200|http'))     //查询用户在服务器内的角色 的成功记录
-            or (strpos($info, 'api_admin_msg_count')                   and strpos($info, '|200|http'))     //查询用户的未读vip消息 的成功记录
-            or (strpos($info, 'a=vip&m=getVip')                        and strpos($info, '|200|http'))     //查询用户是否为VIP 的成功记录
-            or (strpos($info, 'payment/api/GetUserStatus.php')         and strpos($info, '|200|http'))     //查询用户支付情况的成功记录
-            or (strpos($info, 'getUserSecurityLevel')                  and strpos($info, '|200|http'))     //查询用户安全等级的成功记录
-            or (strpos($info, 'api/vip_userinfo.php')                  and strpos($info, '|200|http'))     //查询用户vip信息的成功记录
-            or (strpos($info, 'api/vip_user_sign_info.php')            and strpos($info, '|200|http'))     //查询用户签到信息的成功记录
             or strpos($info, '|0|select')            //数据库的成功查询记录
             or strpos($info, '|0|SELECT')            //数据库的成功查询记录
             or strpos($info, '|0| select')           //数据库的成功查询记录
